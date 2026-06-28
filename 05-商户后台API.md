@@ -1,0 +1,1893 @@
+# 商户后台 API
+
+商户（Merchant）后台管理接口。所有请求需要携带 `Authorization: Bearer <token>` 头部及商户域上下文。
+
+---
+
+## 基础路径
+
+```
+/api/v1/merchant
+```
+
+---
+
+## 商品管理 (Products)
+
+Base: `/api/v1/merchant/product`
+
+---
+
+### 1. 商品列表
+
+分页获取当前商户的商品列表，支持按状态和分类筛选。
+
+- **URL**: `GET /api/v1/merchant/product`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**查询参数 (Query)**:
+
+| 参数 | 类型 | 必填 | 默认值 | 描述 |
+|------|------|------|--------|------|
+| `page` | integer | 否 | 1 | 页码 |
+| `page_size` | integer | 否 | 20 | 每页条数 |
+| `status` | string | 否 | — | 商品状态（如 `on` / `off`） |
+| `category_id` | integer | 否 | — | 分类 ID |
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "pagination": {
+    "per": 20,
+    "count": 42,
+    "page": 3,
+    "current": 1,
+    "next": 2,
+    "previous": 0,
+    "order": "id:desc"
+  },
+  "body": [
+    {
+      "id": 101,
+      "name": "东北大米 50kg",
+      "price": 12000,
+      "stock": 200,
+      "category_id": 5,
+      "brand": "五常",
+      "sku": "NCDM-50KG-001",
+      "description": "优质东北五常大米，50kg装",
+      "images": ["https://cdn.example.com/rice_01.jpg"],
+      "status": "on",
+      "created_at": "2025-01-01T08:00:00Z"
+    }
+  ]
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/product?page=1&page_size=20&status=on&category_id=5" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 2. 商品详情
+
+获取指定商品的详细信息。
+
+- **URL**: `GET /api/v1/merchant/product/:id`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**路径参数**:
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `id` | integer | 商品 ID |
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "id": 101,
+  "name": "东北大米 50kg",
+  "price": 12000,
+  "stock": 200,
+  "category_id": 5,
+  "brand": "五常",
+  "sku": "NCDM-50KG-001",
+  "description": "优质东北五常大米，50kg装",
+  "images": ["https://cdn.example.com/rice_01.jpg"],
+  "status": "on",
+  "created_at": "2025-01-01T08:00:00Z",
+  "updated_at": "2025-01-10T12:00:00Z"
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/product/101" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 3. 创建商品
+
+新增一个商品到商户。
+
+- **URL**: `POST /api/v1/merchant/product`
+- **Method**: `POST`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**请求体 (JSON)**:
+
+| 字段 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `name` | string | 是 | 商品名称 |
+| `price` | integer | 是 | 价格（**分**为单位） |
+| `stock` | integer | 是 | 库存数量 |
+| `category_id` | integer | 是 | 分类 ID |
+| `brand` | string | 否 | 品牌 |
+| `sku` | string | 是 | SKU 编码 |
+| `description` | string | 否 | 商品描述 |
+| `images` | array of string | 否 | 图片 URL 数组（JSON 数组） |
+
+**请求示例**:
+
+```json
+{
+  "name": "东北大米 50kg",
+  "price": 12000,
+  "stock": 200,
+  "category_id": 5,
+  "brand": "五常",
+  "sku": "NCDM-50KG-001",
+  "description": "优质东北五常大米，50kg装",
+  "images": ["https://cdn.example.com/rice_01.jpg"]
+}
+```
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "id": 102,
+  "name": "东北大米 50kg",
+  "price": 12000,
+  "stock": 200,
+  "category_id": 5,
+  "brand": "五常",
+  "sku": "NCDM-50KG-001",
+  "description": "优质东北五常大米，50kg装",
+  "images": ["https://cdn.example.com/rice_01.jpg"],
+  "status": "on",
+  "created_at": "2025-01-16T10:00:00Z"
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X POST "https://api.example.com/api/v1/merchant/product" \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "东北大米 50kg",
+    "price": 12000,
+    "stock": 200,
+    "category_id": 5,
+    "brand": "五常",
+    "sku": "NCDM-50KG-001",
+    "description": "优质东北五常大米，50kg装",
+    "images": ["https://cdn.example.com/rice_01.jpg"]
+  }'
+```
+
+---
+
+### 4. 更新商品
+
+更新指定商品的信息。
+
+- **URL**: `PUT /api/v1/merchant/product/:id`
+- **Method**: `PUT`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**路径参数**:
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `id` | integer | 商品 ID |
+
+**请求体 (JSON)**: 支持部分更新，与创建时的字段一致。
+
+| 字段 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `name` | string | 否 | 商品名称 |
+| `price` | integer | 否 | 价格（分） |
+| `stock` | integer | 否 | 库存数量 |
+| `category_id` | integer | 否 | 分类 ID |
+| `brand` | string | 否 | 品牌 |
+| `sku` | string | 否 | SKU 编码 |
+| `description` | string | 否 | 商品描述 |
+| `images` | array of string | 否 | 图片 URL 数组 |
+
+**请求示例**:
+
+```json
+{
+  "price": 11000,
+  "stock": 250
+}
+```
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "id": 101,
+  "name": "东北大米 50kg",
+  "price": 11000,
+  "stock": 250,
+  "category_id": 5,
+  "brand": "五常",
+  "sku": "NCDM-50KG-001",
+  "description": "优质东北五常大米，50kg装",
+  "images": ["https://cdn.example.com/rice_01.jpg"],
+  "status": "on",
+  "updated_at": "2025-01-16T11:00:00Z"
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X PUT "https://api.example.com/api/v1/merchant/product/101" \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "price": 11000,
+    "stock": 250
+  }'
+```
+
+---
+
+### 5. 删除商品
+
+删除指定商品（软删除或硬删除）。
+
+- **URL**: `DELETE /api/v1/merchant/product/:id`
+- **Method**: `DELETE`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**路径参数**:
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `id` | integer | 商品 ID |
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Product deleted successfully"
+  }
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X DELETE "https://api.example.com/api/v1/merchant/product/101" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+## 订单管理 (Orders)
+
+Base: `/api/v1/merchant/order`
+
+---
+
+### 6. 订单列表
+
+分页获取商户的订单列表，支持状态、关键词、日期范围筛选。
+
+- **URL**: `GET /api/v1/merchant/order`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**查询参数 (Query)**:
+
+| 参数 | 类型 | 必填 | 默认值 | 描述 |
+|------|------|------|--------|------|
+| `page` | integer | 否 | 1 | 页码 |
+| `page_size` | integer | 否 | 20 | 每页条数 |
+| `status` | string | 否 | — | 订单状态 |
+| `keyword` | string | 否 | — | 搜索关键词（订单号/商品名等） |
+| `start_date` | string | 否 | — | 开始日期 (YYYY-MM-DD) |
+| `end_date` | string | 否 | — | 结束日期 (YYYY-MM-DD) |
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "pagination": {
+    "per": 20,
+    "count": 150,
+    "page": 8,
+    "current": 1,
+    "next": 2,
+    "previous": 0,
+    "order": "id:desc"
+  },
+  "body": [
+    {
+      "id": 2001,
+      "order_no": "ORD202501150001",
+      "total_amount": 6000000,
+      "status": "paid",
+      "user_name": "张三",
+      "created_at": "2025-01-15T12:00:00Z"
+    }
+  ]
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/order?page=1&page_size=20&status=paid&start_date=2025-01-01&end_date=2025-01-15" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 7. 订单详情
+
+获取指定订单的详细信息。
+
+- **URL**: `GET /api/v1/merchant/order/:id`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**路径参数**:
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `id` | integer | 订单 ID |
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "id": 2001,
+  "order_no": "ORD202501150001",
+  "total_amount": 6000000,
+  "status": "paid",
+  "user_name": "张三",
+  "shipping_address": "北京市朝阳区建国路88号",
+  "remark": "请尽快发货",
+  "created_at": "2025-01-15T12:00:00Z",
+  "items": [
+    {
+      "product_id": 101,
+      "product_name": "东北大米 50kg",
+      "quantity": 500,
+      "unit_price": 12000
+    }
+  ]
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/order/2001" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 8. 更新订单状态
+
+更新指定订单的状态。
+
+- **URL**: `PUT /api/v1/merchant/order/:id/status`
+- **Method**: `PUT`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**路径参数**:
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `id` | integer | 订单 ID |
+
+**请求体 (JSON)**:
+
+| 字段 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `status` | string | 是 | 目标订单状态（如 `confirmed` / `processing` / `completed`） |
+
+**请求示例**:
+
+```json
+{
+  "status": "processing"
+}
+```
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Order status updated successfully"
+  }
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X PUT "https://api.example.com/api/v1/merchant/order/2001/status" \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "status": "processing"
+  }'
+```
+
+---
+
+### 9. 发货
+
+为指定订单进行发货操作，填写物流信息。
+
+- **URL**: `PUT /api/v1/merchant/order/:id/ship`
+- **Method**: `PUT`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**路径参数**:
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `id` | integer | 订单 ID |
+
+**请求体 (JSON)**:
+
+| 字段 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `tracking_number` | string | 是 | 快递单号 |
+| `carrier` | string | 是 | 快递公司（如 `顺丰` / `圆通` / `中通`） |
+
+**请求示例**:
+
+```json
+{
+  "tracking_number": "SF1234567890",
+  "carrier": "顺丰"
+}
+```
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "id": 2001,
+  "status": "shipped",
+  "tracking_number": "SF1234567890",
+  "carrier": "顺丰",
+  "message": "Order shipped successfully"
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X PUT "https://api.example.com/api/v1/merchant/order/2001/ship" \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "tracking_number": "SF1234567890",
+    "carrier": "顺丰"
+  }'
+```
+
+---
+
+### 10. 取消订单
+
+取消指定订单。
+
+- **URL**: `PUT /api/v1/merchant/order/:id/cancel`
+- **Method**: `PUT`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**路径参数**:
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `id` | integer | 订单 ID |
+
+**请求参数**: 无请求体
+
+**响应示例**:
+
+```json
+{
+  "id": 2001,
+  "status": "cancelled",
+  "message": "Order cancelled successfully"
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X PUT "https://api.example.com/api/v1/merchant/order/2001/cancel" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 11. 获取订单商品项
+
+获取指定订单下的所有商品项。
+
+- **URL**: `GET /api/v1/merchant/order/:id/item`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**路径参数**:
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `id` | integer | 订单 ID |
+
+**响应示例**:
+
+```json
+[
+  {
+    "id": 301,
+    "order_id": 2001,
+    "product_id": 101,
+    "product_name": "东北大米 50kg",
+    "quantity": 500,
+    "unit_price": 12000,
+    "subtotal": 6000000
+  }
+]
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/order/2001/item" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 12. 订单统计
+
+获取商户的订单统计数据。
+
+- **URL**: `GET /api/v1/merchant/order/statistic`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**查询参数**: 可选日期范围
+
+| 参数 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `start_date` | string | 否 | 开始日期 (YYYY-MM-DD) |
+| `end_date` | string | 否 | 结束日期 (YYYY-MM-DD) |
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "total_orders": 150,
+  "total_amount": 900000000,
+  "pending_count": 10,
+  "paid_count": 30,
+  "shipped_count": 50,
+  "completed_count": 55,
+  "cancelled_count": 5
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/order/statistic?start_date=2025-01-01&end_date=2025-01-31" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+## 库存管理 (Inventory)
+
+Base: `/api/v1/merchant/inventory`
+
+---
+
+### 13. 库存列表
+
+获取商户的所有库存记录列表。
+
+- **URL**: `GET /api/v1/merchant/inventory`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**请求参数**: 无
+
+**响应示例**:
+
+```json
+[
+  {
+    "product_id": 101,
+    "product_name": "东北大米 50kg",
+    "stock": 200,
+    "low_stock_threshold": 50,
+    "updated_at": "2025-01-16T10:00:00Z"
+  },
+  {
+    "product_id": 102,
+    "product_name": "有机鸡蛋 30枚装",
+    "stock": 500,
+    "low_stock_threshold": 100,
+    "updated_at": "2025-01-16T10:00:00Z"
+  }
+]
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/inventory" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 14. 按商品查看库存
+
+获取指定商品的库存信息。
+
+- **URL**: `GET /api/v1/merchant/inventory/:productId`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**路径参数**:
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `productId` | integer | 商品 ID |
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "product_id": 101,
+  "product_name": "东北大米 50kg",
+  "stock": 200,
+  "low_stock_threshold": 50,
+  "updated_at": "2025-01-16T10:00:00Z"
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/inventory/101" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 15. 更新库存
+
+更新指定商品的库存数量。
+
+- **URL**: `PUT /api/v1/merchant/inventory/:productId`
+- **Method**: `PUT`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**路径参数**:
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `productId` | integer | 商品 ID |
+
+**请求体 (JSON)**:
+
+| 字段 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `stock` | integer | 是 | 最新库存数量 |
+
+**请求示例**:
+
+```json
+{
+  "stock": 180
+}
+```
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Inventory updated successfully"
+  }
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X PUT "https://api.example.com/api/v1/merchant/inventory/101" \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "stock": 180
+  }'
+```
+
+---
+
+### 16. 低库存预警
+
+获取所有低库存商品的预警列表。
+
+- **URL**: `GET /api/v1/merchant/inventory/low-stock`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**请求参数**: 无
+
+**响应示例**:
+
+```json
+[
+  {
+    "product_id": 103,
+    "product_name": "精选面粉 25kg",
+    "stock": 10,
+    "low_stock_threshold": 30,
+    "updated_at": "2025-01-16T08:00:00Z"
+  }
+]
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/inventory/low-stock" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 17. 库存警报
+
+获取库存相关的所有警报信息。
+
+- **URL**: `GET /api/v1/merchant/inventory/alert`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**请求参数**: 无
+
+**响应示例**:
+
+```json
+[
+  {
+    "product_id": 103,
+    "product_name": "精选面粉 25kg",
+    "alert_type": "low_stock",
+    "message": "库存仅剩 10，低于预警线 30",
+    "created_at": "2025-01-16T08:00:00Z"
+  }
+]
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/inventory/alert" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+## 分类管理 (Categories)
+
+Base: `/api/v1/merchant/category`
+
+---
+
+### 18. 分类列表
+
+获取商户的所有商品分类列表。
+
+- **URL**: `GET /api/v1/merchant/category`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**响应示例**:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "粮油调味",
+    "parent_id": null,
+    "sort_order": 1,
+    "created_at": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": 5,
+    "name": "大米",
+    "parent_id": 1,
+    "sort_order": 1,
+    "created_at": "2025-01-01T00:00:00Z"
+  }
+]
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/category" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 19. 分类详情
+
+获取指定分类的详细信息。
+
+- **URL**: `GET /api/v1/merchant/category/:id`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**路径参数**:
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `id` | integer | 分类 ID |
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "id": 5,
+  "name": "大米",
+  "parent_id": 1,
+  "sort_order": 1,
+  "created_at": "2025-01-01T00:00:00Z"
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/category/5" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 20. 创建分类
+
+新增一个商品分类。
+
+- **URL**: `POST /api/v1/merchant/category`
+- **Method**: `POST`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**请求体 (JSON)**:
+
+| 字段 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `name` | string | 是 | 分类名称 |
+| `parent_id` | integer | 否 | 父分类 ID（null 为顶级分类） |
+| `sort_order` | integer | 否 | 排序序号 |
+
+**请求示例**:
+
+```json
+{
+  "name": "有机食品",
+  "parent_id": null,
+  "sort_order": 10
+}
+```
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "id": 10,
+  "name": "有机食品",
+  "parent_id": null,
+  "sort_order": 10,
+  "created_at": "2025-01-16T14:00:00Z"
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X POST "https://api.example.com/api/v1/merchant/category" \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "有机食品",
+    "parent_id": null,
+    "sort_order": 10
+  }'
+```
+
+---
+
+### 21. 更新分类
+
+更新指定分类的信息。
+
+- **URL**: `PUT /api/v1/merchant/category/:id`
+- **Method**: `PUT`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**路径参数**:
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `id` | integer | 分类 ID |
+
+**请求体 (JSON)**:
+
+| 字段 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `name` | string | 否 | 分类名称 |
+| `parent_id` | integer | 否 | 父分类 ID |
+| `sort_order` | integer | 否 | 排序序号 |
+
+**请求示例**:
+
+```json
+{
+  "name": "有机食品专区",
+  "sort_order": 5
+}
+```
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "id": 10,
+  "name": "有机食品专区",
+  "parent_id": null,
+  "sort_order": 5,
+  "updated_at": "2025-01-16T14:30:00Z"
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X PUT "https://api.example.com/api/v1/merchant/category/10" \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "有机食品专区",
+    "sort_order": 5
+  }'
+```
+
+---
+
+### 22. 删除分类
+
+删除指定分类。
+
+- **URL**: `DELETE /api/v1/merchant/category/:id`
+- **Method**: `DELETE`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**路径参数**:
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `id` | integer | 分类 ID |
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Category deleted successfully"
+  }
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X DELETE "https://api.example.com/api/v1/merchant/category/10" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 23. 分类树
+
+获取商户分类的树形结构。
+
+- **URL**: `GET /api/v1/merchant/category/tree`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**响应示例**:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "粮油调味",
+    "sort_order": 1,
+    "children": [
+      {
+        "id": 5,
+        "name": "大米",
+        "sort_order": 1,
+        "children": []
+      },
+      {
+        "id": 6,
+        "name": "食用油",
+        "sort_order": 2,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "生鲜食材",
+    "sort_order": 2,
+    "children": [
+      {
+        "id": 7,
+        "name": "蔬菜",
+        "sort_order": 1,
+        "children": []
+      }
+    ]
+  }
+]
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/category/tree" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+## 商户设置 (Merchant Settings)
+
+Base: `/api/v1/merchant/merchant`
+
+---
+
+### 24. 获取商户信息
+
+获取当前商户的基本信息。
+
+- **URL**: `GET /api/v1/merchant/merchant`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "id": 3,
+  "name": "好味道食材有限公司",
+  "contact_name": "王经理",
+  "contact_phone": "13800138000",
+  "address": "北京市海淀区中关村大街1号",
+  "logo_url": "https://cdn.example.com/merchant_logo.png",
+  "status": "active",
+  "created_at": "2024-06-01T00:00:00Z"
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/merchant" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 25. 更新商户信息
+
+更新当前商户的基本信息。
+
+- **URL**: `PUT /api/v1/merchant/merchant`
+- **Method**: `PUT`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**请求体 (JSON)**:
+
+| 字段 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `name` | string | 否 | 商户名称 |
+| `contact_name` | string | 否 | 联系人姓名 |
+| `contact_phone` | string | 否 | 联系电话 |
+| `address` | string | 否 | 地址 |
+
+**请求示例**:
+
+```json
+{
+  "contact_name": "李经理",
+  "contact_phone": "13900139000"
+}
+```
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "id": 3,
+  "name": "好味道食材有限公司",
+  "contact_name": "李经理",
+  "contact_phone": "13900139000",
+  "address": "北京市海淀区中关村大街1号",
+  "logo_url": "https://cdn.example.com/merchant_logo.png",
+  "status": "active",
+  "updated_at": "2025-01-16T15:00:00Z"
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X PUT "https://api.example.com/api/v1/merchant/merchant" \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "contact_name": "李经理",
+    "contact_phone": "13900139000"
+  }'
+```
+
+---
+
+### 26. 创建商户
+
+创建一个新的商户账号。
+
+- **URL**: `POST /api/v1/merchant/merchant`
+- **Method**: `POST`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**请求体 (JSON)**:
+
+| 字段 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `name` | string | 是 | 商户名称 |
+| `contact_name` | string | 是 | 联系人姓名 |
+| `contact_phone` | string | 是 | 联系电话 |
+| `address` | string | 否 | 地址 |
+
+**请求示例**:
+
+```json
+{
+  "name": "新鲜农场直供",
+  "contact_name": "赵总",
+  "contact_phone": "13700137000",
+  "address": "上海市浦东新区张江路100号"
+}
+```
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "id": 10,
+  "name": "新鲜农场直供",
+  "contact_name": "赵总",
+  "contact_phone": "13700137000",
+  "address": "上海市浦东新区张江路100号",
+  "status": "active",
+  "created_at": "2025-01-16T16:00:00Z"
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X POST "https://api.example.com/api/v1/merchant/merchant" \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "新鲜农场直供",
+    "contact_name": "赵总",
+    "contact_phone": "13700137000",
+    "address": "上海市浦东新区张江路100号"
+  }'
+```
+
+---
+
+### 27. 上传商户 Logo
+
+上传商户 Logo 图片。
+
+- **URL**: `POST /api/v1/merchant/merchant/logo`
+- **Method**: `POST`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**请求体**: `multipart/form-data`
+
+| 字段 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `logo` | file | 是 | Logo 图片文件 |
+
+**响应示例**:
+
+```json
+{
+  "logo_url": "https://cdn.example.com/merchant_logo_new.png",
+  "message": "Logo uploaded successfully"
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X POST "https://api.example.com/api/v1/merchant/merchant/logo" \
+  -H "Authorization: Bearer <token>" \
+  -F "logo=@/path/to/logo.png"
+```
+
+---
+
+## 数据分析 (Analytics)
+
+Base: `/api/v1/merchant/analytic`
+
+---
+
+### 28. 销售分析
+
+获取销售相关的分析数据。
+
+- **URL**: `GET /api/v1/merchant/analytic/sales`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**查询参数**:
+
+| 参数 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `start_date` | string | 否 | 开始日期 (YYYY-MM-DD) |
+| `end_date` | string | 否 | 结束日期 (YYYY-MM-DD) |
+| `period` | string | 否 | 统计周期（daily / weekly / monthly） |
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "total_sales": 900000000,
+  "order_count": 150,
+  "avg_order_value": 6000000,
+  "daily_data": [
+    {"date": "2025-01-15", "sales": 30000000, "orders": 5},
+    {"date": "2025-01-16", "sales": 45000000, "orders": 8}
+  ]
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/analytic/sales?start_date=2025-01-01&end_date=2025-01-31&period=daily" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 29. 收入分析
+
+获取收入相关的分析数据。
+
+- **URL**: `GET /api/v1/merchant/analytic/revenue`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**查询参数**:
+
+| 参数 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `start_date` | string | 否 | 开始日期 |
+| `end_date` | string | 否 | 结束日期 |
+| `period` | string | 否 | 统计周期 |
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "total_revenue": 850000000,
+  "commission": 50000000,
+  "net_income": 800000000,
+  "daily_data": [
+    {"date": "2025-01-15", "revenue": 28000000, "commission": 1500000}
+  ]
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/analytic/revenue" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 30. 客户分析
+
+获取客户相关的分析数据。
+
+- **URL**: `GET /api/v1/merchant/analytic/customer`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**查询参数**:
+
+| 参数 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `start_date` | string | 否 | 开始日期 |
+| `end_date` | string | 否 | 结束日期 |
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "total_customers": 85,
+  "new_customers": 12,
+  "repeat_customers": 25,
+  "avg_purchase_frequency": 2.3
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/analytic/customer" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 31. 商品分析
+
+获取商品相关的分析数据。
+
+- **URL**: `GET /api/v1/merchant/analytic/product`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**查询参数**:
+
+| 参数 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `start_date` | string | 否 | 开始日期 |
+| `end_date` | string | 否 | 结束日期 |
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "top_products": [
+    {"product_id": 101, "name": "东北大米 50kg", "sales": 500, "revenue": 6000000},
+    {"product_id": 102, "name": "有机鸡蛋 30枚装", "sales": 300, "revenue": 1350000}
+  ],
+  "total_products": 42,
+  "active_products": 38
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/analytic/product" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 32. 总览分析
+
+获取商户经营总览分析数据。
+
+- **URL**: `GET /api/v1/merchant/analytic/overview`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**查询参数**: 无
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "today_orders": 5,
+  "today_revenue": 30000000,
+  "month_orders": 150,
+  "month_revenue": 900000000,
+  "pending_orders": 10,
+  "low_stock_count": 3,
+  "total_products": 42
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/analytic/overview" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+## 角色管理 (Roles)
+
+Base: `/api/v1/merchant/role`
+
+---
+
+### 33. 角色列表
+
+获取商户的所有角色列表。
+
+- **URL**: `GET /api/v1/merchant/role`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**响应示例**:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "管理员",
+    "code": "admin",
+    "description": "拥有所有权限",
+    "permissions": ["product.*", "order.*", "inventory.*", "analytic.*"],
+    "status": "active",
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": 2,
+    "name": "运营",
+    "code": "operator",
+    "description": "商品和订单管理",
+    "permissions": ["product.read", "product.write", "order.read", "order.write"],
+    "status": "active",
+    "created_at": "2024-01-01T00:00:00Z"
+  }
+]
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/role" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 34. 角色详情
+
+获取指定角色的详细信息。
+
+- **URL**: `GET /api/v1/merchant/role/:id`
+- **Method**: `GET`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**路径参数**:
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `id` | integer | 角色 ID |
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "id": 1,
+  "name": "管理员",
+  "code": "admin",
+  "description": "拥有所有权限",
+  "permissions": ["product.*", "order.*", "inventory.*", "analytic.*"],
+  "status": "active",
+  "created_at": "2024-01-01T00:00:00Z",
+  "updated_at": "2024-06-01T00:00:00Z"
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X GET "https://api.example.com/api/v1/merchant/role/1" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 35. 创建角色
+
+新增一个角色。
+
+- **URL**: `POST /api/v1/merchant/role`
+- **Method**: `POST`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**请求体 (JSON)**:
+
+| 字段 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `name` | string | 是 | 角色名称 |
+| `code` | string | 是 | 角色编码 |
+| `description` | string | 否 | 角色描述 |
+| `permissions` | array of string | 否 | 权限列表 |
+| `status` | string | 否 | 状态（active / inactive） |
+
+**请求示例**:
+
+```json
+{
+  "name": "仓库管理员",
+  "code": "warehouse",
+  "description": "管理库存和发货",
+  "permissions": ["inventory.read", "inventory.write", "order.read", "order.ship"]
+}
+```
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "id": 3,
+  "name": "仓库管理员",
+  "code": "warehouse",
+  "description": "管理库存和发货",
+  "permissions": ["inventory.read", "inventory.write", "order.read", "order.ship"],
+  "status": "active",
+  "created_at": "2025-01-16T17:00:00Z"
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X POST "https://api.example.com/api/v1/merchant/role" \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "仓库管理员",
+    "code": "warehouse",
+    "description": "管理库存和发货",
+    "permissions": ["inventory.read", "inventory.write", "order.read", "order.ship"]
+  }'
+```
+
+---
+
+### 36. 更新角色
+
+更新指定角色的信息。
+
+- **URL**: `PUT /api/v1/merchant/role/:id`
+- **Method**: `PUT`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**路径参数**:
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `id` | integer | 角色 ID |
+
+**请求体 (JSON)**:
+
+| 字段 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `name` | string | 否 | 角色名称 |
+| `description` | string | 否 | 角色描述 |
+| `permissions` | array of string | 否 | 权限列表 |
+| `status` | string | 否 | 状态 |
+
+**请求示例**:
+
+```json
+{
+  "name": "高级仓库管理员",
+  "permissions": ["inventory.*", "order.read", "order.ship"]
+}
+```
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Success"
+  },
+  "body": {
+  "id": 3,
+  "name": "高级仓库管理员",
+  "code": "warehouse",
+  "description": "管理库存和发货",
+  "permissions": ["inventory.*", "order.read", "order.ship"],
+  "status": "active",
+  "updated_at": "2025-01-16T17:30:00Z"
+}
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X PUT "https://api.example.com/api/v1/merchant/role/3" \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "高级仓库管理员",
+    "permissions": ["inventory.*", "order.read", "order.ship"]
+  }'
+```
+
+---
+
+### 37. 删除角色
+
+删除指定角色。
+
+- **URL**: `DELETE /api/v1/merchant/role/:id`
+- **Method**: `DELETE`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**路径参数**:
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `id` | integer | 角色 ID |
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Role deleted successfully"
+  }
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X DELETE "https://api.example.com/api/v1/merchant/role/3" \
+  -H "Authorization: Bearer <token>"
+```
+
+---
+
+### 38. 角色权限分配（额外）
+
+为角色分配/更新权限列表（部分实现中可能合并到更新角色中）。
+
+- **URL**: `PUT /api/v1/merchant/role/:id/permission`
+- **Method**: `PUT`
+- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
+
+**路径参数**:
+
+| 参数 | 类型 | 描述 |
+|------|------|------|
+| `id` | integer | 角色 ID |
+
+**请求体 (JSON)**:
+
+| 字段 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| `permissions` | array of string | 是 | 权限标识列表 |
+
+**请求示例**:
+
+```json
+{
+  "permissions": ["product.read", "product.write", "order.read"]
+}
+```
+
+**响应示例**:
+
+```json
+{
+  "head": {
+    "code": "1000",
+    "msg": "Permissions updated successfully"
+  }
+}
+```
+
+**Curl 示例**:
+
+```bash
+curl -X PUT "https://api.example.com/api/v1/merchant/role/2/permission" \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "permissions": ["product.read", "product.write", "order.read"]
+  }'
+```
