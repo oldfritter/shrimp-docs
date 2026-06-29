@@ -18,8 +18,8 @@ GET /api/v1/customer/order
 
 | 参数 | 类型 | 必填 | 默认值 | 说明 |
 |------|------|------|--------|------|
-| `page` | int | 否 | 1 | 页码 |
-| `page_size` | int | 否 | 10 | 每页数量 |
+| `Page` | int | 否 | 1 | 页码 |
+| `PageSize` | int | 否 | 10 | 每页数量 |
 | `status` | string | 否 | - | 订单状态过滤 |
 
 #### 请求示例
@@ -196,7 +196,7 @@ POST /api/v1/customer/order/refund
 
 | 字段 | 类型 | 必填 | 说明 |
 |------|------|------|------|
-| `order_id` | uint | 是 | 订单 ID |
+| `OrderID` | uint | 是 | 订单 ID |
 | `amount` | int64 | 是 | 退款金额，单位：分 |
 | `reason` | string | 是 | 退款原因 |
 
@@ -432,17 +432,17 @@ POST /api/v1/customer/intent
 | `products[].quality_requirement` | string | 否 | 品质要求 |
 | `products[].price_range_min` | int64 | 否 | 单价区间（最小），单位：分 |
 | `products[].price_range_max` | int64 | 否 | 单价区间（最大），单位：分 |
-| `min_level` | int | 是 | 最低采购员等级要求（1-5） |
-| `commission_amt` | int64 | 是 | 采购员佣金，单位：分 |
-| `commission_currency_id` | uint | 是 | 佣金币种 ID（1=人民币） |
-| `estimated_amount` | int64 | 否 | 预估总金额，单位：分 |
-| `quality_require` | string | 否 | 品质要求（全局） |
-| `location_lat` | float | 是 | 纬度 |
-| `location_lng` | float | 是 | 经度 |
-| `location_name` | string | 否 | 位置名称 |
-| `delivery_address` | string | 是 | 收货地址 |
-| `delivery_name` | string | 是 | 收货人姓名 |
-| `delivery_phone` | string | 是 | 收货人电话 |
+| `MinLevel` | int | 是 | 最低采购员等级要求（1-5） |
+| `CommissionAmt` | int64 | 是 | 采购员佣金，单位：分 |
+| `CommissionCurrencyID` | uint | 是 | 佣金币种 ID（1=人民币） |
+| `EstimatedAmount` | int64 | 否 | 预估总金额，单位：分 |
+| `QualityRequire` | string | 否 | 品质要求（全局） |
+| `LocationLat` | float | 是 | 纬度 |
+| `LocationLng` | float | 是 | 经度 |
+| `LocationName` | string | 否 | 位置名称 |
+| `DeliveryAddress` | string | 是 | 收货地址 |
+| `DeliveryName` | string | 是 | 收货人姓名 |
+| `DeliveryPhone` | string | 是 | 收货人电话 |
 
 #### 请求示例
 
@@ -537,8 +537,8 @@ GET /api/v1/customer/intent/me
 | 参数 | 类型 | 必填 | 默认值 | 说明 |
 |------|------|------|--------|------|
 | `status` | string | 否 | - | 状态过滤：`pending` / `accepted` / `completed` / `cancelled` |
-| `page` | int | 否 | 1 | 页码 |
-| `page_size` | int | 否 | 10 | 每页数量 |
+| `Page` | int | 否 | 1 | 页码 |
+| `PageSize` | int | 否 | 10 | 每页数量 |
 
 #### 请求示例
 

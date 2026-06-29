@@ -59,7 +59,7 @@ POST /api/v1/procurement/cart/item
 
 | 字段 | 类型 | 必填 | 说明 |
 |------|------|------|------|
-| `product_id` | uint | 是 | 商品 ID |
+| `ProductID` | uint | 是 | 商品 ID |
 | `quantity` | int | 是 | 数量（≥1） |
 
 #### 请求示例
@@ -203,7 +203,7 @@ POST /api/v1/procurement/qualification/apply
 | 字段 | 类型 | 必填 | 说明 |
 |------|------|------|------|
 | `level` | int | 是 | 申请等级（1-5） |
-| `level_name` | string | 否 | 等级名称，如"初级采购员" |
+| `LevelName` | string | 否 | 等级名称，如"初级采购员" |
 
 #### 请求示例
 
@@ -297,13 +297,13 @@ GET /api/v1/procurement/intent/square
 
 | 参数 | 类型 | 必填 | 默认值 | 说明 |
 |------|------|------|--------|------|
-| `page` | int | 否 | 1 | 页码 |
-| `page_size` | int | 否 | 10 | 每页数量 |
-| `keyword` | string | 否 | - | 关键词搜索（标题/描述） |
-| `lat` | float | 否 | - | 用户纬度（用于距离筛选） |
-| `lng` | float | 否 | - | 用户经度 |
-| `radius_km` | float | 否 | 20 | 搜索半径（公里） |
-| `min_level` | int | 否 | - | 最低等级要求 |
+| `Page` | int | 否 | 1 | 页码 |
+| `PageSize` | int | 否 | 10 | 每页数量 |
+| `Keyword` | string | 否 | - | 关键词搜索（标题/描述） |
+| `Lat` | float | 否 | - | 用户纬度（用于距离筛选） |
+| `Lng` | float | 否 | - | 用户经度 |
+| `RadiusKM` | float | 否 | 20 | 搜索半径（公里） |
+| `MinLevel` | int | 否 | - | 最低等级要求 |
 
 #### 请求示例
 

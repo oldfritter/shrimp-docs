@@ -14,11 +14,11 @@ GET /api/v1/product
 
 | 参数 | 类型 | 必填 | 默认值 | 说明 |
 |------|------|------|--------|------|
-| `page` | int | 否 | 1 | 页码 |
-| `page_size` | int | 否 | 10 | 每页数量 |
-| `category_id` | uint | 否 | - | 分类 ID 筛选 |
-| `status` | string | 否 | - | 状态过滤，如 `active` |
-| `sort` | string | 否 | `id:desc` | 排序，支持 `id:asc`、`price:asc` 等 |
+| `Page` | int | 否 | 1 | 页码 |
+| `PageSize` | int | 否 | 10 | 每页数量 |
+| `CategoryID` | uint | 否 | - | 分类 ID 筛选 |
+| `Status` | string | 否 | - | 状态过滤，如 `active` |
+| `Sort` | string | 否 | `id:desc` | 排序，支持 `id:asc`、`price:asc` 等 |
 
 ### 请求示例
 

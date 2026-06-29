@@ -34,10 +34,10 @@ Base: `/api/v1/merchant/product`
 
 | 参数 | 类型 | 必填 | 默认值 | 描述 |
 |------|------|------|--------|------|
-| `page` | integer | 否 | 1 | 页码 |
-| `page_size` | integer | 否 | 20 | 每页条数 |
-| `status` | string | 否 | — | 商品状态（如 `on` / `off`） |
-| `category_id` | integer | 否 | — | 分类 ID |
+| `Page` | integer | 否 | 1 | 页码 |
+| `PageSize` | integer | 否 | 20 | 每页条数 |
+| `Status` | string | 否 | — | 商品状态（如 `on` / `off`） |
+| `CategoryID` | integer | 否 | — | 分类 ID |
 
 **响应示例**:
 
@@ -146,7 +146,7 @@ curl -X GET "https://api.example.com/api/v1/merchant/product/101" \
 | `name` | string | 是 | 商品名称 |
 | `price` | integer | 是 | 价格（**分**为单位） |
 | `stock` | integer | 是 | 库存数量 |
-| `category_id` | integer | 是 | 分类 ID |
+| `CategoryID` | integer | 是 | 分类 ID |
 | `brand` | string | 否 | 品牌 |
 | `sku` | string | 是 | SKU 编码 |
 | `description` | string | 否 | 商品描述 |
@@ -232,7 +232,7 @@ curl -X POST "https://api.example.com/api/v1/merchant/product" \
 | `name` | string | 否 | 商品名称 |
 | `price` | integer | 否 | 价格（分） |
 | `stock` | integer | 否 | 库存数量 |
-| `category_id` | integer | 否 | 分类 ID |
+| `CategoryID` | integer | 否 | 分类 ID |
 | `brand` | string | 否 | 品牌 |
 | `sku` | string | 否 | SKU 编码 |
 | `description` | string | 否 | 商品描述 |
@@ -337,12 +337,12 @@ Base: `/api/v1/merchant/order`
 
 | 参数 | 类型 | 必填 | 默认值 | 描述 |
 |------|------|------|--------|------|
-| `page` | integer | 否 | 1 | 页码 |
-| `page_size` | integer | 否 | 20 | 每页条数 |
-| `status` | string | 否 | — | 订单状态 |
-| `keyword` | string | 否 | — | 搜索关键词（订单号/商品名等） |
-| `start_date` | string | 否 | — | 开始日期 (YYYY-MM-DD) |
-| `end_date` | string | 否 | — | 结束日期 (YYYY-MM-DD) |
+| `Page` | integer | 否 | 1 | 页码 |
+| `PageSize` | integer | 否 | 20 | 每页条数 |
+| `Status` | string | 否 | — | 订单状态 |
+| `Keyword` | string | 否 | — | 搜索关键词（订单号/商品名等） |
+| `StartDate` | string | 否 | — | 开始日期 (YYYY-MM-DD) |
+| `EndDate` | string | 否 | — | 结束日期 (YYYY-MM-DD) |
 
 **响应示例**:
 
@@ -505,8 +505,8 @@ curl -X PUT "https://api.example.com/api/v1/merchant/order/2001/status" \
 
 | 字段 | 类型 | 必填 | 描述 |
 |------|------|------|------|
-| `tracking_number` | string | 是 | 快递单号 |
-| `carrier` | string | 是 | 快递公司（如 `顺丰` / `圆通` / `中通`） |
+| `TrackingNumber` | string | 是 | 快递单号 |
+| `Carrier` | string | 是 | 快递公司（如 `顺丰` / `圆通` / `中通`） |
 
 **请求示例**:
 
@@ -635,8 +635,8 @@ curl -X GET "https://api.example.com/api/v1/merchant/order/2001/item" \
 
 | 参数 | 类型 | 必填 | 描述 |
 |------|------|------|------|
-| `start_date` | string | 否 | 开始日期 (YYYY-MM-DD) |
-| `end_date` | string | 否 | 结束日期 (YYYY-MM-DD) |
+| `StartDate` | string | 否 | 开始日期 (YYYY-MM-DD) |
+| `EndDate` | string | 否 | 结束日期 (YYYY-MM-DD) |
 
 **响应示例**:
 
@@ -970,8 +970,8 @@ curl -X GET "https://api.example.com/api/v1/merchant/category/5" \
 | 字段 | 类型 | 必填 | 描述 |
 |------|------|------|------|
 | `name` | string | 是 | 分类名称 |
-| `parent_id` | integer | 否 | 父分类 ID（null 为顶级分类） |
-| `sort_order` | integer | 否 | 排序序号 |
+| `ParentID` | integer | 否 | 父分类 ID（null 为顶级分类） |
+| `SortOrder` | integer | 否 | 排序序号 |
 
 **请求示例**:
 
@@ -1035,8 +1035,8 @@ curl -X POST "https://api.example.com/api/v1/merchant/category" \
 | 字段 | 类型 | 必填 | 描述 |
 |------|------|------|------|
 | `name` | string | 否 | 分类名称 |
-| `parent_id` | integer | 否 | 父分类 ID |
-| `sort_order` | integer | 否 | 排序序号 |
+| `ParentID` | integer | 否 | 父分类 ID |
+| `SortOrder` | integer | 否 | 排序序号 |
 
 **请求示例**:
 
@@ -1225,8 +1225,8 @@ curl -X GET "https://api.example.com/api/v1/merchant/merchant" \
 | 字段 | 类型 | 必填 | 描述 |
 |------|------|------|------|
 | `name` | string | 否 | 商户名称 |
-| `contact_name` | string | 否 | 联系人姓名 |
-| `contact_phone` | string | 否 | 联系电话 |
+| `ContactName` | string | 否 | 联系人姓名 |
+| `ContactPhone` | string | 否 | 联系电话 |
 | `address` | string | 否 | 地址 |
 
 **请求示例**:
@@ -1285,8 +1285,8 @@ curl -X PUT "https://api.example.com/api/v1/merchant/merchant" \
 | 字段 | 类型 | 必填 | 描述 |
 |------|------|------|------|
 | `name` | string | 是 | 商户名称 |
-| `contact_name` | string | 是 | 联系人姓名 |
-| `contact_phone` | string | 是 | 联系电话 |
+| `ContactName` | string | 是 | 联系人姓名 |
+| `ContactPhone` | string | 是 | 联系电话 |
 | `address` | string | 否 | 地址 |
 
 **请求示例**:
@@ -1354,9 +1354,9 @@ Base: `/api/v1/merchant/analytic`
 
 | 参数 | 类型 | 必填 | 描述 |
 |------|------|------|------|
-| `start_date` | string | 否 | 开始日期 (YYYY-MM-DD) |
-| `end_date` | string | 否 | 结束日期 (YYYY-MM-DD) |
-| `period` | string | 否 | 统计周期（daily / weekly / monthly） |
+| `StartDate` | string | 否 | 开始日期 (YYYY-MM-DD) |
+| `EndDate` | string | 否 | 结束日期 (YYYY-MM-DD) |
+| `Period` | string | 否 | 统计周期（daily / weekly / monthly） |
 
 **响应示例**:
 
@@ -1399,9 +1399,9 @@ curl -X GET "https://api.example.com/api/v1/merchant/analytic/sales?start_date=2
 
 | 参数 | 类型 | 必填 | 描述 |
 |------|------|------|------|
-| `start_date` | string | 否 | 开始日期 |
-| `end_date` | string | 否 | 结束日期 |
-| `period` | string | 否 | 统计周期 |
+| `StartDate` | string | 否 | 开始日期 |
+| `EndDate` | string | 否 | 结束日期 |
+| `Period` | string | 否 | 统计周期 |
 
 **响应示例**:
 
@@ -1443,8 +1443,8 @@ curl -X GET "https://api.example.com/api/v1/merchant/analytic/revenue" \
 
 | 参数 | 类型 | 必填 | 描述 |
 |------|------|------|------|
-| `start_date` | string | 否 | 开始日期 |
-| `end_date` | string | 否 | 结束日期 |
+| `StartDate` | string | 否 | 开始日期 |
+| `EndDate` | string | 否 | 结束日期 |
 
 **响应示例**:
 
@@ -1484,8 +1484,8 @@ curl -X GET "https://api.example.com/api/v1/merchant/analytic/customer" \
 
 | 参数 | 类型 | 必填 | 描述 |
 |------|------|------|------|
-| `start_date` | string | 否 | 开始日期 |
-| `end_date` | string | 否 | 结束日期 |
+| `StartDate` | string | 否 | 开始日期 |
+| `EndDate` | string | 否 | 结束日期 |
 
 **响应示例**:
 
