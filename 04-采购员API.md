@@ -34,7 +34,7 @@ curl "http://localhost:8090/api/v1/procurement/cart" \
       "ProductID": 1,
       "Quantity": 3,
       "Product": {
-        "id": 1,
+        "ID": 1,
         "Name": "有机红富士苹果",
         "Price": 5000,
         "Stock": 200,

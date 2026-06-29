@@ -36,7 +36,7 @@ curl "http://localhost:8090/api/v1/product?page=1&page_size=10&category_id=1"
   },
   "Body": [
     {
-      "id": 1,
+      "ID": 1,
       "MerchantID": 1,
       "Name": "新鲜有机苹果",
       "Description": "产地直供，新鲜有机苹果，每箱约5斤",
@@ -92,7 +92,7 @@ curl "http://localhost:8090/api/v1/product/1"
     "Msg": "Success"
   },
   "Body": {
-    "id": 1,
+    "ID": 1,
     "MerchantID": 1,
     "Name": "新鲜有机苹果",
     "Description": "产地直供，新鲜有机苹果，每箱约5斤",
@@ -107,14 +107,14 @@ curl "http://localhost:8090/api/v1/product/1"
     "CreatedAt": "2026-06-24T10:00:00+08:00",
     "UpdatedAt": "2026-06-24T10:00:00+08:00",
     "Category": {
-      "id": 1,
+      "ID": 1,
       "Name": "水果",
       "Description": "新鲜水果",
       "ParentID": null,
       "Status": "active"
     },
     "Merchant": {
-      "id": 1,
+      "ID": 1,
       "Name": "鲜果超市旗舰店",
       "Status": "active"
     }
@@ -157,14 +157,14 @@ curl "http://localhost:8090/api/v1/category"
   },
   "Body": [
     {
-      "id": 1,
+      "ID": 1,
       "name": "水果",
       "description": "新鲜水果",
       "parent_id": null,
       "status": "active"
     },
     {
-      "id": 2,
+      "ID": 2,
       "name": "苹果",
       "description": "各种苹果",
       "parent_id": 1,
@@ -197,19 +197,19 @@ curl "http://localhost:8090/api/v1/category/1"
     "Msg": "Success"
   },
   "Body": {
-    "id": 1,
+    "ID": 1,
     "name": "水果",
     "description": "新鲜水果",
     "parent_id": null,
     "status": "active",
     "children": [
       {
-        "id": 2,
+        "ID": 2,
         "name": "苹果",
         "parent_id": 1
       },
       {
-        "id": 3,
+        "ID": 3,
         "name": "香蕉",
         "parent_id": 1
       }
@@ -317,7 +317,7 @@ curl -X POST "http://localhost:8090/api/v1/login" \
     "Phone": "13800138000",
     "Roles": [
       {
-        "id": 1,
+        "ID": 1,
         "Name": "普通用户",
         "Admin": false
       }
@@ -374,7 +374,7 @@ curl "http://localhost:8090/api/v1/profile" \
     "Status": "active",
     "Roles": [
       {
-        "id": 1,
+        "ID": 1,
         "Name": "普通用户",
         "Admin": false
       }
@@ -415,7 +415,7 @@ curl "http://localhost:8090/api/v1/session" \
   },
   "Body": [
     {
-      "id": 1,
+      "ID": 1,
       "device_os": "macos",
       "device_type": "desktop",
       "browser": "chrome",
@@ -423,7 +423,7 @@ curl "http://localhost:8090/api/v1/session" \
       "login_at": "2026-06-24T09:00:00+08:00"
     },
     {
-      "id": 2,
+      "ID": 2,
       "device_os": "ios",
       "device_type": "mobile",
       "browser": "safari",

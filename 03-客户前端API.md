@@ -47,7 +47,7 @@ curl "http://localhost:8090/api/v1/customer/order?page=1&page_size=10" \
       "ShippingAddress": "北京市朝阳区建国路88号",
       "OrderItems": [
         {
-          "id": 1,
+          "ID": 1,
           "ProductName": "有机红富士苹果",
           "Quantity": 2,
           "UnitPrice": 2500,
@@ -102,14 +102,14 @@ curl "http://localhost:8090/api/v1/customer/order/1" \
     "ShippingAddress": "北京市朝阳区建国路88号",
     "OrderItems": [
       {
-        "id": 1,
+        "ID": 1,
         "ProductName": "有机红富士苹果",
         "Quantity": 2,
         "UnitPrice": 2500,
         "Subtotal": 5000
       },
       {
-        "id": 2,
+        "ID": 2,
         "ProductName": "精选阿克苏冰糖心",
         "Quantity": 1,
         "UnitPrice": 3500,
@@ -222,7 +222,7 @@ curl -X POST "http://localhost:8090/api/v1/customer/order/refund" \
     "Msg": "Success"
   },
   "Body": {
-    "id": 1,
+    "ID": 1,
     "order_id": 1,
     "amount": 8500,
     "reason": "商品品质不符",
@@ -257,7 +257,7 @@ curl "http://localhost:8090/api/v1/customer/order/refund" \
   },
   "Body": [
     {
-      "id": 1,
+      "ID": 1,
       "income_id": 0,
       "order_id": 1,
       "amount": 8500,
@@ -342,7 +342,7 @@ curl "http://localhost:8090/api/v1/customer/message" \
   },
   "Body": [
     {
-      "id": 1,
+      "ID": 1,
       "title": "采购订单已确认",
       "content": "您的采购意向 #5 已被采购员接取",
       "is_read": false,
@@ -492,7 +492,7 @@ curl -X POST "http://localhost:8090/api/v1/customer/intent" \
     "Msg": "Success"
   },
   "Body": {
-    "id": 5,
+    "ID": 5,
     "user_id": 42,
     "user_name": "zhangsan",
     "title": "采购一批新鲜水果",
@@ -557,7 +557,7 @@ curl "http://localhost:8090/api/v1/customer/intent/me?status=pending" \
   },
   "Body": [
     {
-      "id": 5,
+      "ID": 5,
       "title": "采购一批新鲜水果",
       "status": "pending",
       "commission_amt": 2000,

@@ -46,14 +46,14 @@ Base: `/api/v1/admin`
     "msg": "Success"
   },
   "body": {
-    "total_users": 1280,
-    "total_merchants": 45,
-    "total_products": 3200,
-    "total_orders": 15890,
-    "today_revenue": 256800.00,
-    "today_new_users": 32,
-    "today_new_orders": 178,
-    "pending_qualifications": 5
+    "TotalUsers": 1280,
+    "TotalMerchants": 45,
+    "TotalProducts": 3200,
+    "TotalOrders": 15890,
+    "TodayRevenue": 256800.00,
+    "TodayNewUsers": 32,
+    "TodayNewOrders": 178,
+    "PendingQualifications": 5
   }
 }
 ```
@@ -95,10 +95,10 @@ curl -X GET 'https://api.example.com/api/v1/admin/dashboard' \
     "msg": "Success"
   },
   "body": {
-    "user_growth": { "2025-01-01": 10, "2025-01-02": 15 },
-    "revenue_daily": { "2025-01-01": 120000, "2025-01-02": 135000 },
-    "order_volume": { "2025-01-01": 95, "2025-01-02": 110 },
-    "active_merchants": 42
+    "UserGrowth": { "2025-01-01": 10, "2025-01-02": 15 },
+    "RevenueDaily": { "2025-01-01": 120000, "2025-01-02": 135000 },
+    "OrderVolume": { "2025-01-01": 95, "2025-01-02": 110 },
+    "ActiveMerchants": 42
   }
 }
 ```
@@ -260,7 +260,7 @@ curl -X GET 'https://api.example.com/api/v1/admin/merchant/1' \
   "name": "新商户",
   "code": "MERCHANT002",
   "domain": "newshop.example.com",
-  "owner_id": 10,
+  "OwnerID": 10,
   "phone": "13800000002",
   "description": "新入驻商户",
   "address": "上海市浦东新区xx路200号",
@@ -300,7 +300,7 @@ curl -X POST 'https://api.example.com/api/v1/admin/merchant' \
     "name": "新商户",
     "code": "MERCHANT002",
     "domain": "newshop.example.com",
-    "owner_id": 10
+    "OwnerID": 10
   }'
 ```
 
@@ -664,10 +664,10 @@ curl -X GET 'https://api.example.com/api/v1/admin/role?page=1&page_size=20' \
     "msg": "Success"
   },
   "body": {
-    "id": 1,
+    "ID": 1,
     "name": "超级管理员",
     "description": "平台超级管理员",
-    "merchant_id": null,
+    "MerchantID": null,
     "admin": true,
     "permissions": ["user:read", "user:write", "merchant:read", "merchant:write"],
     "created_at": "2025-01-01T00:00:00Z",
@@ -710,7 +710,7 @@ curl -X GET 'https://api.example.com/api/v1/admin/role/1' \
 ```json
 {
   "name": "运营人员",
-  "merchant_id": 1,
+  "MerchantID": 1,
   "description": "商户运营角色",
   "admin": false
 }
@@ -725,9 +725,9 @@ curl -X GET 'https://api.example.com/api/v1/admin/role/1' \
     "msg": "Success"
   },
   "body": {
-    "id": 3,
+    "ID": 3,
     "name": "运营人员",
-    "merchant_id": 1,
+    "MerchantID": 1,
     "description": "商户运营角色",
     "admin": false,
     "created_at": "2025-01-20T10:00:00Z",
@@ -744,7 +744,7 @@ curl -X POST 'https://api.example.com/api/v1/admin/role' \
   -H 'Content-Type: application/json' \
   -d '{
     "name": "运营人员",
-    "merchant_id": 1,
+    "MerchantID": 1,
     "description": "商户运营角色",
     "admin": false
   }'
@@ -780,9 +780,9 @@ curl -X POST 'https://api.example.com/api/v1/admin/role' \
     "msg": "Success"
   },
   "body": {
-    "id": 3,
+    "ID": 3,
     "name": "高级运营",
-    "merchant_id": 1,
+    "MerchantID": 1,
     "description": "升级后的角色",
     "admin": false,
     "updated_at": "2025-01-20T12:00:00Z"
@@ -941,10 +941,10 @@ curl -X GET 'https://api.example.com/api/v1/admin/qualification?status=pending&p
     "msg": "Success"
   },
   "body": {
-    "id": 1,
+    "ID": 1,
     "status": "approved",
     "remark": "资质齐全，审核通过",
-    "reviewed_at": "2025-01-20T12:00:00Z"
+    "ReviewedAt": "2025-01-20T12:00:00Z"
   }
 }
 ```
@@ -996,7 +996,7 @@ Base: `/api/v1/admin/intent`
   },
   "body": [
     {
-      "id": 1,
+      "ID": 1,
       "name": "张三",
       "phone": "13800000001",
       "email": "zhangsan@example.com",
@@ -1053,7 +1053,7 @@ curl -X GET 'https://api.example.com/api/v1/admin/intent?status=new&page=1&page_
     "msg": "Success"
   },
   "body": {
-    "id": 1,
+    "ID": 1,
     "name": "张三",
     "phone": "13800000001",
     "email": "zhangsan@example.com",
@@ -1061,9 +1061,9 @@ curl -X GET 'https://api.example.com/api/v1/admin/intent?status=new&page=1&page_
     "status": "new",
     "source": "website",
     "remark": "有意入驻平台",
-    "contact_history": [
+    "ContactHistory": [
       {
-        "contacted_at": "2025-01-19T10:00:00Z",
+        "ContactedAt": "2025-01-19T10:00:00Z",
         "note": "已发送入驻指南邮件"
       }
     ],
@@ -1117,9 +1117,9 @@ Base: `/api/v1/admin/product`
   },
   "body": [
     {
-      "id": 1,
+      "ID": 1,
       "name": "示例商品",
-      "merchant_id": 1,
+      "MerchantID": 1,
       "merchant_name": "示例商户",
       "category_id": 2,
       "category_name": "电子产品",
@@ -1176,9 +1176,9 @@ curl -X GET 'https://api.example.com/api/v1/admin/product?page=1&page_size=20&st
     "msg": "Success"
   },
   "body": {
-    "id": 1,
+    "ID": 1,
     "name": "示例商品",
-    "merchant_id": 1,
+    "MerchantID": 1,
     "merchant_name": "示例商户",
     "category_id": 2,
     "category_name": "电子产品",
@@ -1232,7 +1232,7 @@ curl -X GET 'https://api.example.com/api/v1/admin/product/1' \
 ```json
 {
   "name": "新产品",
-  "merchant_id": 1,
+  "MerchantID": 1,
   "category_id": 2,
   "price": 19900,
   "description": "这是新产品描述",
@@ -1251,9 +1251,9 @@ curl -X GET 'https://api.example.com/api/v1/admin/product/1' \
     "msg": "Success"
   },
   "body": {
-    "id": 100,
+    "ID": 100,
     "name": "新产品",
-    "merchant_id": 1,
+    "MerchantID": 1,
     "category_id": 2,
     "price": 19900,
     "status": "active",
@@ -1272,7 +1272,7 @@ curl -X POST 'https://api.example.com/api/v1/admin/product' \
   -H 'Content-Type: application/json' \
   -d '{
     "name": "新产品",
-    "merchant_id": 1,
+    "MerchantID": 1,
     "category_id": 2,
     "price": 19900,
     "description": "这是新产品描述",
@@ -1312,7 +1312,7 @@ curl -X POST 'https://api.example.com/api/v1/admin/product' \
     "msg": "Success"
   },
   "body": {
-    "id": 100,
+    "ID": 100,
     "name": "更新后的产品",
     "price": 23900,
     "updated_at": "2025-01-20T12:00:00Z"
@@ -1409,7 +1409,7 @@ Base: `/api/v1/admin/category`
   },
   "body": [
     {
-      "id": 1,
+      "ID": 1,
       "name": "电子产品",
       "parent_id": null,
       "sort_order": 1,
@@ -1418,7 +1418,7 @@ Base: `/api/v1/admin/category`
       "updated_at": "2025-01-01T00:00:00Z"
     },
     {
-      "id": 2,
+      "ID": 2,
       "name": "手机通讯",
       "parent_id": 1,
       "sort_order": 1,
@@ -1464,14 +1464,14 @@ curl -X GET 'https://api.example.com/api/v1/admin/category' \
     "msg": "Success"
   },
   "body": {
-    "id": 1,
+    "ID": 1,
     "name": "电子产品",
     "parent_id": null,
     "sort_order": 1,
     "status": "active",
     "children": [
       {
-        "id": 2,
+        "ID": 2,
         "name": "手机通讯",
         "parent_id": 1,
         "sort_order": 1,
@@ -1533,7 +1533,7 @@ curl -X GET 'https://api.example.com/api/v1/admin/category/1' \
     "msg": "Success"
   },
   "body": {
-    "id": 21,
+    "ID": 21,
     "name": "智能家居",
     "parent_id": 1,
     "sort_order": 3,
@@ -1587,7 +1587,7 @@ curl -X POST 'https://api.example.com/api/v1/admin/category' \
     "msg": "Success"
   },
   "body": {
-    "id": 21,
+    "ID": 21,
     "name": "智能家居设备",
     "sort_order": 2,
     "updated_at": "2025-01-20T12:00:00Z"
@@ -1663,9 +1663,9 @@ curl -X DELETE 'https://api.example.com/api/v1/admin/category/21' \
 ```json
 {
   "items": [
-    { "id": 1, "sort_order": 1 },
-    { "id": 2, "sort_order": 2 },
-    { "id": 21, "sort_order": 3 }
+    { "ID": 1, "sort_order": 1 },
+    { "ID": 2, "sort_order": 2 },
+    { "ID": 21, "sort_order": 3 }
   ]
 }
 ```
@@ -1689,8 +1689,8 @@ curl -X PUT 'https://api.example.com/api/v1/admin/category/batch-order' \
   -H 'Content-Type: application/json' \
   -d '{
     "items": [
-      { "id": 1, "sort_order": 1 },
-      { "id": 2, "sort_order": 2 }
+      { "ID": 1, "sort_order": 1 },
+      { "ID": 2, "sort_order": 2 }
     ]
   }'
 ```
