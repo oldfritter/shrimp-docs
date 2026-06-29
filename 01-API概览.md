@@ -14,12 +14,12 @@
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": { ... },
-  "pagination": { ... }
+  "Body": { ... },
+  "Pagination": { ... }
 }
 ```
 
@@ -27,22 +27,22 @@
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| `head.code` | string | 业务错误码，`"1000"` 表示成功，其他值表示具体错误 |
-| `head.msg` | string | 提示消息，按 `Accept-Language` 自动中/英文 |
-| `body` | object/array | 响应数据体 |
-| `pagination` | object | 分页信息（仅列表接口返回） |
+| `Head.Code` | string | 业务错误码，`"1000"` 表示成功，其他值表示具体错误 |
+| `Head.Msg` | string | 提示消息，按 `Accept-Language` 自动中/英文 |
+| `Body` | object/array | 响应数据体 |
+| `Pagination` | object | 分页信息（仅列表接口返回） |
 
 ### 分页结构
 
 ```json
 {
-  "per": 10,
-  "count": 56,
-  "page": 6,
-  "current": 1,
-  "next": 2,
-  "previous": 0,
-  "order": "id:desc"
+  "Per": 10,
+  "Count": 56,
+  "Page": 6,
+  "Current": 1,
+  "Next": 2,
+  "Previous": 0,
+  "Order": "id:desc"
 }
 ```
 

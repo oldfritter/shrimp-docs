@@ -33,11 +33,11 @@ curl "http://localhost:8090/api/v1/customer/order?page=1&page_size=10" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": [
+  "Body": [
     {
       "ID": 1,
       "OrderNumber": "ORD202606241001",
@@ -58,14 +58,14 @@ curl "http://localhost:8090/api/v1/customer/order?page=1&page_size=10" \
       "UpdatedAt": "2026-06-24T10:00:00+08:00"
     }
   ],
-  "pagination": {
-    "per": 10,
-    "count": 12,
-    "page": 2,
-    "current": 1,
-    "next": 2,
-    "previous": 0,
-    "order": "id:desc"
+  "Pagination": {
+    "Per": 10,
+    "Count": 12,
+    "Page": 2,
+    "Current": 1,
+    "Next": 2,
+    "Previous": 0,
+    "Order": "id:desc"
   }
 }
 ```
@@ -89,11 +89,11 @@ curl "http://localhost:8090/api/v1/customer/order/1" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "ID": 1,
     "OrderNumber": "ORD202606241001",
     "Status": "picked",
@@ -143,11 +143,11 @@ curl -X POST "http://localhost:8090/api/v1/customer/order/1/cancel" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "message": "取消成功"
   }
 }
@@ -174,11 +174,11 @@ curl -X POST "http://localhost:8090/api/v1/customer/order/1/confirm" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "message": "确认收货成功"
   }
 }
@@ -217,11 +217,11 @@ curl -X POST "http://localhost:8090/api/v1/customer/order/refund" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "id": 1,
     "order_id": 1,
     "amount": 8500,
@@ -251,11 +251,11 @@ curl "http://localhost:8090/api/v1/customer/order/refund" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": [
+  "Body": [
     {
       "id": 1,
       "income_id": 0,
@@ -290,11 +290,11 @@ curl "http://localhost:8090/api/v1/customer/shipping/track/1" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "order_id": 1,
     "tracking_number": "SF1234567890",
     "carrier": "顺丰速运",
@@ -336,11 +336,11 @@ curl "http://localhost:8090/api/v1/customer/message" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": [
+  "Body": [
     {
       "id": 1,
       "title": "采购订单已确认",
@@ -371,11 +371,11 @@ curl -X POST "http://localhost:8090/api/v1/customer/message/1/read" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "message": "已标记为已读"
   }
 }
@@ -400,11 +400,11 @@ curl -X DELETE "http://localhost:8090/api/v1/customer/message/1" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "message": "已删除"
   }
 }
@@ -487,11 +487,11 @@ curl -X POST "http://localhost:8090/api/v1/customer/intent" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "id": 5,
     "user_id": 42,
     "user_name": "zhangsan",
@@ -551,11 +551,11 @@ curl "http://localhost:8090/api/v1/customer/intent/me?status=pending" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": [
+  "Body": [
     {
       "id": 5,
       "title": "采购一批新鲜水果",
@@ -570,14 +570,14 @@ curl "http://localhost:8090/api/v1/customer/intent/me?status=pending" \
       "procurement_name": null
     }
   ],
-  "pagination": {
-    "per": 10,
-    "count": 3,
-    "page": 1,
-    "current": 1,
-    "next": 0,
-    "previous": 0,
-    "order": "id:desc"
+  "Pagination": {
+    "Per": 10,
+    "Count": 3,
+    "Page": 1,
+    "Current": 1,
+    "Next": 0,
+    "Previous": 0,
+    "Order": "id:desc"
   }
 }
 ```
@@ -603,11 +603,11 @@ curl -X POST "http://localhost:8090/api/v1/customer/intent/5/cancel" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "message": "取消成功"
   }
 }

@@ -43,20 +43,20 @@ Base: `/api/v1/merchant/product`
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "pagination": {
-    "per": 20,
-    "count": 42,
-    "page": 3,
-    "current": 1,
-    "next": 2,
-    "previous": 0,
-    "order": "id:desc"
+  "Pagination": {
+    "Per": 20,
+    "Count": 42,
+    "Page": 3,
+    "Current": 1,
+    "Next": 2,
+    "Previous": 0,
+    "Order": "id:desc"
   },
-  "body": [
+  "Body": [
     {
       "ID": 101,
       "Name": "东北大米 50kg",
@@ -101,11 +101,11 @@ curl -X GET "https://api.example.com/api/v1/merchant/product?page=1&page_size=20
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "ID": 101,
   "Name": "东北大米 50kg",
   "Price": 12000,
@@ -171,11 +171,11 @@ curl -X GET "https://api.example.com/api/v1/merchant/product/101" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "ID": 102,
   "Name": "东北大米 50kg",
   "Price": 12000,
@@ -251,11 +251,11 @@ curl -X POST "https://api.example.com/api/v1/merchant/product" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "id": 101,
   "name": "东北大米 50kg",
   "price": 11000,
@@ -303,8 +303,8 @@ curl -X PUT "https://api.example.com/api/v1/merchant/product/101" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
+  "Head": {
+    "Code": "1000",
     "msg": "Product deleted successfully"
   }
 }
@@ -348,11 +348,11 @@ Base: `/api/v1/merchant/order`
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "pagination": {
+  "Pagination": {
     "per": 20,
     "count": 150,
     "page": 8,
@@ -361,7 +361,7 @@ Base: `/api/v1/merchant/order`
     "previous": 0,
     "order": "id:desc"
   },
-  "body": [
+  "Body": [
     {
       "id": 2001,
       "order_no": "ORD202501150001",
@@ -401,11 +401,11 @@ curl -X GET "https://api.example.com/api/v1/merchant/order?page=1&page_size=20&s
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "id": 2001,
   "order_no": "ORD202501150001",
   "total_amount": 6000000,
@@ -467,8 +467,8 @@ curl -X GET "https://api.example.com/api/v1/merchant/order/2001" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
+  "Head": {
+    "Code": "1000",
     "msg": "Order status updated successfully"
   }
 }
@@ -521,11 +521,11 @@ curl -X PUT "https://api.example.com/api/v1/merchant/order/2001/status" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "id": 2001,
   "status": "shipped",
   "tracking_number": "SF1234567890",
@@ -642,11 +642,11 @@ curl -X GET "https://api.example.com/api/v1/merchant/order/2001/item" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "total_orders": 150,
   "total_amount": 900000000,
   "pending_count": 10,
@@ -731,11 +731,11 @@ curl -X GET "https://api.example.com/api/v1/merchant/inventory" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "product_id": 101,
   "product_name": "东北大米 50kg",
   "stock": 200,
@@ -786,8 +786,8 @@ curl -X GET "https://api.example.com/api/v1/merchant/inventory/101" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
+  "Head": {
+    "Code": "1000",
     "msg": "Inventory updated successfully"
   }
 }
@@ -934,11 +934,11 @@ curl -X GET "https://api.example.com/api/v1/merchant/category" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "id": 5,
   "name": "大米",
   "parent_id": 1,
@@ -987,11 +987,11 @@ curl -X GET "https://api.example.com/api/v1/merchant/category/5" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "id": 10,
   "name": "有机食品",
   "parent_id": null,
@@ -1051,11 +1051,11 @@ curl -X POST "https://api.example.com/api/v1/merchant/category" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "id": 10,
   "name": "有机食品专区",
   "parent_id": null,
@@ -1097,8 +1097,8 @@ curl -X PUT "https://api.example.com/api/v1/merchant/category/10" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
+  "Head": {
+    "Code": "1000",
     "msg": "Category deleted successfully"
   }
 }
@@ -1187,11 +1187,11 @@ Base: `/api/v1/merchant/merchant`
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "ID": 3,
   "Name": "好味道食材有限公司",
   "Phone": "13800138000",
@@ -1242,11 +1242,11 @@ curl -X GET "https://api.example.com/api/v1/merchant/merchant" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "ID": 3,
   "Name": "好味道食材有限公司",
   "Phone": "13900139000",
@@ -1304,11 +1304,11 @@ curl -X PUT "https://api.example.com/api/v1/merchant/merchant" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "id": 10,
   "name": "新鲜农场直供",
   "contact_name": "赵总",
@@ -1362,11 +1362,11 @@ Base: `/api/v1/merchant/analytic`
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "total_sales": 900000000,
   "order_count": 150,
   "avg_order_value": 6000000,
@@ -1407,11 +1407,11 @@ curl -X GET "https://api.example.com/api/v1/merchant/analytic/sales?start_date=2
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "total_revenue": 850000000,
   "commission": 50000000,
   "net_income": 800000000,
@@ -1450,11 +1450,11 @@ curl -X GET "https://api.example.com/api/v1/merchant/analytic/revenue" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "total_customers": 85,
   "new_customers": 12,
   "repeat_customers": 25,
@@ -1491,11 +1491,11 @@ curl -X GET "https://api.example.com/api/v1/merchant/analytic/customer" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "top_products": [
     {"product_id": 101, "name": "东北大米 50kg", "sales": 500, "revenue": 6000000},
     {"product_id": 102, "name": "有机鸡蛋 30枚装", "sales": 300, "revenue": 1350000}
@@ -1529,11 +1529,11 @@ curl -X GET "https://api.example.com/api/v1/merchant/analytic/product" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "today_orders": 5,
   "today_revenue": 30000000,
   "month_orders": 150,
@@ -1620,11 +1620,11 @@ curl -X GET "https://api.example.com/api/v1/merchant/role" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "id": 1,
   "name": "管理员",
   "code": "admin",
@@ -1679,11 +1679,11 @@ curl -X GET "https://api.example.com/api/v1/merchant/role/1" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "id": 3,
   "name": "仓库管理员",
   "code": "warehouse",
@@ -1747,11 +1747,11 @@ curl -X POST "https://api.example.com/api/v1/merchant/role" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
   "id": 3,
   "name": "高级仓库管理员",
   "code": "warehouse",
@@ -1795,8 +1795,8 @@ curl -X PUT "https://api.example.com/api/v1/merchant/role/3" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
+  "Head": {
+    "Code": "1000",
     "msg": "Role deleted successfully"
   }
 }
@@ -1843,8 +1843,8 @@ curl -X DELETE "https://api.example.com/api/v1/merchant/role/3" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
+  "Head": {
+    "Code": "1000",
     "msg": "Permissions updated successfully"
   }
 }

@@ -30,11 +30,11 @@ curl "http://localhost:8090/api/v1/product?page=1&page_size=10&category_id=1"
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": [
+  "Body": [
     {
       "id": 1,
       "MerchantID": 1,
@@ -51,7 +51,7 @@ curl "http://localhost:8090/api/v1/product?page=1&page_size=10&category_id=1"
       "UpdatedAt": "2026-06-24T10:00:00+08:00"
     }
   ],
-  "pagination": {
+  "Pagination": {
     "per": 10,
     "count": 56,
     "page": 6,
@@ -87,11 +87,11 @@ curl "http://localhost:8090/api/v1/product/1"
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "id": 1,
     "MerchantID": 1,
     "Name": "新鲜有机苹果",
@@ -126,7 +126,7 @@ curl "http://localhost:8090/api/v1/product/1"
 
 ```json
 {
-  "head": {
+  "Head": {
     "code": "2001",
     "msg": "商品不存在"
   }
@@ -151,11 +151,11 @@ curl "http://localhost:8090/api/v1/category"
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": [
+  "Body": [
     {
       "id": 1,
       "name": "水果",
@@ -192,11 +192,11 @@ curl "http://localhost:8090/api/v1/category/1"
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "id": 1,
     "name": "水果",
     "description": "新鲜水果",
@@ -250,11 +250,11 @@ curl -X POST "http://localhost:8090/api/v1/register" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "Message": "注册成功",
     "UserID": 42,
     "Username": "zhangsan"
@@ -266,9 +266,9 @@ curl -X POST "http://localhost:8090/api/v1/register" \
 
 ```json
 {
-  "head": {
+  "Head": {
     "code": "1007",
-    "msg": "用户名或手机号已被注册"
+    "Msg": "用户名或手机号已被注册"
   }
 }
 ```
@@ -303,11 +303,11 @@ curl -X POST "http://localhost:8090/api/v1/login" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0MiwiZXhwIjoxNzE5MjM0NTY3fQ...",
     "RefreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0MiwiZXhwIjoxNzE5NDA3MzY3fQ...",
     "TokenType": "access",
@@ -330,9 +330,9 @@ curl -X POST "http://localhost:8090/api/v1/login" \
 
 ```json
 {
-  "head": {
+  "Head": {
     "code": "1401",
-    "msg": "用户名或密码错误"
+    "Msg": "用户名或密码错误"
   }
 }
 ```
@@ -362,11 +362,11 @@ curl "http://localhost:8090/api/v1/profile" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "ID": 42,
     "Username": "zhangsan",
     "Phone": "13800138000",
@@ -409,11 +409,11 @@ curl "http://localhost:8090/api/v1/session" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": [
+  "Body": [
     {
       "id": 1,
       "device_os": "macos",
