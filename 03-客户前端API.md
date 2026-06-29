@@ -39,24 +39,23 @@ curl "http://localhost:8090/api/v1/customer/order?page=1&page_size=10" \
   },
   "body": [
     {
-      "id": 1,
-      "order_number": "ORD202606241001",
-      "status": "pending",
-      "total_amount": 8500,
-      "payment_status": "pending",
-      "payment_method": "",
-      "shipping_address": "北京市朝阳区建国路88号",
-      "order_items": [
+      "ID": 1,
+      "OrderNumber": "ORD202606241001",
+      "Status": "pending",
+      "TotalAmount": 8500,
+      "PaymentStatus": "pending",
+      "ShippingAddress": "北京市朝阳区建国路88号",
+      "OrderItems": [
         {
           "id": 1,
-          "product_name": "有机红富士苹果",
-          "quantity": 2,
-          "unit_price": 2500,
-          "subtotal": 5000
+          "ProductName": "有机红富士苹果",
+          "Quantity": 2,
+          "UnitPrice": 2500,
+          "Subtotal": 5000
         }
       ],
-      "created_at": "2026-06-24T10:00:00+08:00",
-      "updated_at": "2026-06-24T10:00:00+08:00"
+      "CreatedAt": "2026-06-24T10:00:00+08:00",
+      "UpdatedAt": "2026-06-24T10:00:00+08:00"
     }
   ],
   "pagination": {
@@ -95,33 +94,30 @@ curl "http://localhost:8090/api/v1/customer/order/1" \
     "msg": "Success"
   },
   "body": {
-    "id": 1,
-    "order_number": "ORD202606241001",
-    "status": "picked",
-    "total_amount": 8500,
-    "payment_status": "pending",
-    "payment_method": "",
-    "shipping_address": "北京市朝阳区建国路88号",
-    "tracking_number": "SF1234567890",
-    "carrier": "顺丰速运",
-    "order_items": [
+    "ID": 1,
+    "OrderNumber": "ORD202606241001",
+    "Status": "picked",
+    "TotalAmount": 8500,
+    "PaymentStatus": "pending",
+    "ShippingAddress": "北京市朝阳区建国路88号",
+    "OrderItems": [
       {
         "id": 1,
-        "product_name": "有机红富士苹果",
-        "quantity": 2,
-        "unit_price": 2500,
-        "subtotal": 5000
+        "ProductName": "有机红富士苹果",
+        "Quantity": 2,
+        "UnitPrice": 2500,
+        "Subtotal": 5000
       },
       {
         "id": 2,
-        "product_name": "精选阿克苏冰糖心",
-        "quantity": 1,
-        "unit_price": 3500,
-        "subtotal": 3500
+        "ProductName": "精选阿克苏冰糖心",
+        "Quantity": 1,
+        "UnitPrice": 3500,
+        "Subtotal": 3500
       }
     ],
-    "created_at": "2026-06-24T10:00:00+08:00",
-    "updated_at": "2026-06-24T14:30:00+08:00"
+    "CreatedAt": "2026-06-24T10:00:00+08:00",
+    "UpdatedAt": "2026-06-24T14:30:00+08:00"
   }
 }
 ```

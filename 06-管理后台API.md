@@ -147,15 +147,13 @@ Base: `/api/v1/admin/merchant`
   },
   "body": [
     {
-      "id": 1,
-      "name": "示例商户",
-      "code": "MERCHANT001",
-      "domain": "shop.example.com",
-      "owner_id": 10,
-      "phone": "13800000001",
-      "status": "active",
-      "created_at": "2025-01-01T00:00:00Z",
-      "updated_at": "2025-01-15T12:00:00Z"
+      "ID": 1,
+      "Name": "示例商户",
+      "OwnerID": 10,
+      "Phone": "13800000001",
+      "Status": "active",
+      "CreatedAt": "2025-01-01T00:00:00Z",
+      "UpdatedAt": "2025-01-15T12:00:00Z"
     }
   ],
   "pagination": {
@@ -204,20 +202,18 @@ curl -X GET 'https://api.example.com/api/v1/admin/merchant?page=1&page_size=20&s
     "msg": "Success"
   },
   "body": {
-    "id": 1,
-    "name": "示例商户",
-    "code": "MERCHANT001",
-    "domain": "shop.example.com",
-    "owner_id": 10,
-    "phone": "13800000001",
-    "description": "主营数码产品",
-    "address": "北京市朝阳区xx路100号",
-    "province": "北京市",
-    "city": "北京市",
-    "district": "朝阳区",
-    "status": "active",
-    "created_at": "2025-01-01T00:00:00Z",
-    "updated_at": "2025-01-15T12:00:00Z"
+    "ID": 1,
+    "Name": "示例商户",
+    "OwnerID": 10,
+    "Phone": "13800000001",
+    "Description": "主营数码产品",
+    "Address": "北京市朝阳区xx路100号",
+    "Province": "北京市",
+    "City": "北京市",
+    "District": "朝阳区",
+    "Status": "active",
+    "CreatedAt": "2025-01-01T00:00:00Z",
+    "UpdatedAt": "2025-01-15T12:00:00Z"
   }
 }
 ```
@@ -283,15 +279,13 @@ curl -X GET 'https://api.example.com/api/v1/admin/merchant/1' \
     "msg": "Success"
   },
   "body": {
-    "id": 2,
-    "name": "新商户",
-    "code": "MERCHANT002",
-    "domain": "newshop.example.com",
-    "owner_id": 10,
-    "phone": "13800000002",
-    "status": "active",
-    "created_at": "2025-01-20T10:00:00Z",
-    "updated_at": "2025-01-20T10:00:00Z"
+    "ID": 2,
+    "Name": "新商户",
+    "OwnerID": 10,
+    "Phone": "13800000002",
+    "Status": "active",
+    "CreatedAt": "2025-01-20T10:00:00Z",
+    "UpdatedAt": "2025-01-20T10:00:00Z"
   }
 }
 ```
@@ -340,13 +334,11 @@ curl -X POST 'https://api.example.com/api/v1/admin/merchant' \
     "msg": "Success"
   },
   "body": {
-    "id": 1,
-    "name": "更新后的商户名称",
-    "code": "MERCHANT001",
-    "domain": "updated.example.com",
-    "owner_id": 10,
-    "status": "active",
-    "updated_at": "2025-01-20T12:00:00Z"
+    "ID": 1,
+    "Name": "更新后的商户名称",
+    "OwnerID": 10,
+    "Status": "active",
+    "UpdatedAt": "2025-01-20T12:00:00Z"
   }
 }
 ```
@@ -434,13 +426,13 @@ Base: `/api/v1/admin/user`
   },
   "body": [
     {
-      "id": 1,
-      "username": "user01",
-      "phone": "13800000001",
-      "status": "active",
-      "avatar": "https://cdn.example.com/avatars/1.jpg",
-      "created_at": "2025-01-01T00:00:00Z",
-      "updated_at": "2025-01-15T12:00:00Z"
+      "ID": 1,
+      "Username": "user01",
+      "Phone": "13800000001",
+      "Status": "active",
+      "Avatar": "https://cdn.example.com/avatars/1.jpg",
+      "CreatedAt": "2025-01-01T00:00:00Z",
+      "UpdatedAt": "2025-01-15T12:00:00Z"
     }
   ],
   "pagination": {
@@ -489,13 +481,13 @@ curl -X GET 'https://api.example.com/api/v1/admin/user?page=1&page_size=20&statu
     "msg": "Success"
   },
   "body": {
-    "id": 1,
-    "username": "user01",
-    "phone": "13800000001",
-    "status": "active",
-    "avatar": "https://cdn.example.com/avatars/1.jpg",
-    "created_at": "2025-01-01T00:00:00Z",
-    "updated_at": "2025-01-15T12:00:00Z"
+    "ID": 1,
+    "Username": "user01",
+    "Phone": "13800000001",
+    "Status": "active",
+    "Avatar": "https://cdn.example.com/avatars/1.jpg",
+    "CreatedAt": "2025-01-01T00:00:00Z",
+    "UpdatedAt": "2025-01-15T12:00:00Z"
   }
 }
 ```
@@ -553,12 +545,12 @@ curl -X GET 'https://api.example.com/api/v1/admin/user/1' \
     "msg": "Success"
   },
   "body": {
-    "id": 1,
-    "username": "newname",
-    "phone": "13800000001",
-    "status": "active",
-    "avatar": "https://cdn.example.com/avatars/1.jpg",
-    "updated_at": "2025-01-20T12:00:00Z"
+    "ID": 1,
+    "Username": "newname",
+    "Phone": "13800000001",
+    "Status": "active",
+    "Avatar": "https://cdn.example.com/avatars/1.jpg",
+    "UpdatedAt": "2025-01-20T12:00:00Z"
   }
 }
 ```
@@ -608,22 +600,22 @@ Base: `/api/v1/admin/role`
   },
   "body": [
     {
-      "id": 1,
-      "name": "超级管理员",
-      "description": "平台超级管理员",
-      "merchant_id": null,
-      "admin": true,
-      "created_at": "2025-01-01T00:00:00Z",
-      "updated_at": "2025-01-01T00:00:00Z"
+      "ID": 1,
+      "Name": "超级管理员",
+      "Description": "平台超级管理员",
+      "MerchantID": null,
+      "Admin": true,
+      "CreatedAt": "2025-01-01T00:00:00Z",
+      "UpdatedAt": "2025-01-01T00:00:00Z"
     },
     {
-      "id": 2,
-      "name": "商户管理员",
-      "description": "各商户的管理员角色",
-      "merchant_id": 1,
-      "admin": false,
-      "created_at": "2025-01-05T00:00:00Z",
-      "updated_at": "2025-01-05T00:00:00Z"
+      "ID": 2,
+      "Name": "商户管理员",
+      "Description": "各商户的管理员角色",
+      "MerchantID": 1,
+      "Admin": false,
+      "CreatedAt": "2025-01-05T00:00:00Z",
+      "UpdatedAt": "2025-01-05T00:00:00Z"
     }
   ],
   "pagination": {
@@ -880,15 +872,10 @@ Base: `/api/v1/admin/qualification`
   },
   "body": [
     {
-      "id": 1,
-      "merchant_id": 1,
-      "merchant_name": "示例商户",
-      "type": "business_license",
-      "file_url": "https://cdn.example.com/qualifications/1.pdf",
-      "status": "pending",
-      "remark": null,
-      "submitted_at": "2025-01-18T10:00:00Z",
-      "reviewed_at": null
+      "ID": 1,
+      "MerchantID": 1,
+      "Status": "pending",
+      "CreatedAt": "2025-01-18T10:00:00Z"
     }
   ],
   "pagination": {

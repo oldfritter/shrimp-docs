@@ -29,19 +29,19 @@ curl "http://localhost:8090/api/v1/procurement/cart" \
   },
   "body": [
     {
-      "id": 1,
-      "user_id": 42,
-      "product_id": 1,
-      "quantity": 3,
-      "product": {
+      "ID": 1,
+      "UserID": 42,
+      "ProductID": 1,
+      "Quantity": 3,
+      "Product": {
         "id": 1,
-        "name": "有机红富士苹果",
-        "price": 5000,
-        "stock": 200,
-        "images": "[\"https://oss.example.com/apple1.jpg\"]",
-        "status": "active"
+        "Name": "有机红富士苹果",
+        "Price": 5000,
+        "Stock": 200,
+        "Images": "[\"https://oss.example.com/apple1.jpg\"]",
+        "Status": "active"
       },
-      "updated_at": "2026-06-24T10:00:00+08:00"
+      "UpdatedAt": "2026-06-24T10:00:00+08:00"
     }
   ]
 }
@@ -80,11 +80,11 @@ curl -X POST "http://localhost:8090/api/v1/procurement/cart/item" \
     "msg": "Success"
   },
   "body": {
-    "id": 1,
-    "user_id": 42,
-    "product_id": 1,
-    "quantity": 3,
-    "updated_at": "2026-06-24T10:00:00+08:00"
+    "ID": 1,
+    "UserID": 42,
+    "ProductID": 1,
+    "Quantity": 3,
+    "UpdatedAt": "2026-06-24T10:00:00+08:00"
   }
 }
 ```
@@ -121,11 +121,11 @@ curl -X PUT "http://localhost:8090/api/v1/procurement/cart/item/1" \
     "msg": "Success"
   },
   "body": {
-    "id": 1,
-    "user_id": 42,
-    "product_id": 1,
-    "quantity": 5,
-    "updated_at": "2026-06-24T10:05:00+08:00"
+    "ID": 1,
+    "UserID": 42,
+    "ProductID": 1,
+    "Quantity": 5,
+    "UpdatedAt": "2026-06-24T10:05:00+08:00"
   }
 }
 ```
@@ -154,7 +154,7 @@ curl -X DELETE "http://localhost:8090/api/v1/procurement/cart/item/1" \
     "msg": "Success"
   },
   "body": {
-    "message": "已移除"
+    "Message": "已移除"
   }
 }
 ```
@@ -183,7 +183,7 @@ curl -X DELETE "http://localhost:8090/api/v1/procurement/cart" \
     "msg": "Success"
   },
   "body": {
-    "message": "购物车已清空"
+    "Message": "购物车已清空"
   }
 }
 ```
@@ -223,15 +223,14 @@ curl -X POST "http://localhost:8090/api/v1/procurement/qualification/apply" \
     "msg": "Success"
   },
   "body": {
-    "id": 1,
-    "user_id": 42,
-    "level": 1,
-    "level_name": "初级采购员",
-    "total_amount": 0,
-    "currency_id": 1,
-    "currency_name": "人民币",
-    "status": "pending",
-    "created_at": "2026-06-24T10:00:00+08:00"
+    "ID": 1,
+    "UserID": 42,
+    "Level": 1,
+    "LevelName": "初级采购员",
+    "TotalAmount": 0,
+    "CurrencyID": 1,
+    "Status": "pending",
+    "CreatedAt": "2026-06-24T10:00:00+08:00"
   }
 }
 ```
@@ -260,16 +259,15 @@ curl "http://localhost:8090/api/v1/procurement/qualification/me" \
     "msg": "Success"
   },
   "body": {
-    "id": 1,
-    "user_id": 42,
-    "level": 1,
-    "level_name": "初级采购员",
-    "total_amount": 500000,
-    "currency_id": 1,
-    "currency_name": "人民币",
-    "status": "active",
-    "approved_at": "2026-06-22T09:00:00+08:00",
-    "created_at": "2026-06-22T08:00:00+08:00"
+    "ID": 1,
+    "UserID": 42,
+    "Level": 1,
+    "LevelName": "初级采购员",
+    "TotalAmount": 500000,
+    "CurrencyID": 1,
+    "Status": "active",
+    "ApprovedAt": "2026-06-22T09:00:00+08:00",
+    "CreatedAt": "2026-06-22T08:00:00+08:00"
   }
 }
 ```
@@ -324,33 +322,25 @@ curl "http://localhost:8090/api/v1/procurement/intent/square?keyword=水果&lat=
   },
   "body": [
     {
-      "id": 5,
-      "user_id": 10,
-      "user_name": "zhangsan",
-      "title": "采购一批新鲜水果",
-      "description": "需要新鲜水果用于公司团建",
-      "products": [
+      "ID": 5,
+      "UserID": 10,
+      "Title": "采购一批新鲜水果",
+      "Description": "需要新鲜水果用于公司团建",
+      "Products": [
         {
-          "product_name": "红富士苹果",
-          "quantity": 50,
-          "quality_requirement": "果径80mm以上",
-          "price_range_min": 3000,
-          "price_range_max": 5000
+          "ProductName": "红富士苹果",
+          "Quantity": 50,
+          "QualityRequirement": "果径80mm以上"
         }
       ],
-      "min_level": 1,
-      "commission_amt": 2000,
-      "commission_currency_id": 1,
-      "commission_currency": "人民币",
-      "estimated_amount": 150000,
-      "quality_require": "新鲜，无腐烂",
-      "location_lat": 39.9042,
-      "location_lng": 116.4074,
-      "location_name": "北京市朝阳区",
-      "delivery_address": "北京市朝阳区建国路88号",
-      "delivery_name": "张三",
-      "status": "pending",
-      "created_at": "2026-06-24T10:00:00+08:00"
+      "MinLevel": 1,
+      "CommissionAmt": 2000,
+      "EstimatedAmount": 150000,
+      "QualityRequire": "新鲜，无腐烂",
+      "DeliveryAddress": "北京市朝阳区建国路88号",
+      "DeliveryName": "张三",
+      "Status": "pending",
+      "CreatedAt": "2026-06-24T10:00:00+08:00"
     }
   ],
   "pagination": {
@@ -389,23 +379,22 @@ curl "http://localhost:8090/api/v1/procurement/intent/5" \
     "msg": "Success"
   },
   "body": {
-    "id": 5,
-    "title": "采购一批新鲜水果",
-    "description": "需要新鲜水果用于公司团建",
-    "products": [
-      { "product_name": "红富士苹果", "quantity": 50 }
+    "ID": 5,
+    "Title": "采购一批新鲜水果",
+    "Description": "需要新鲜水果用于公司团建",
+    "Products": [
+      { "ProductName": "红富士苹果", "Quantity": 50 }
     ],
-    "min_level": 1,
-    "commission_amt": 2000,
-    "estimated_amount": 150000,
-    "delivery_address": "北京市朝阳区建国路88号",
-    "delivery_name": "张三",
-    "delivery_phone": "13800138000",
-    "location_lat": 39.9042,
-    "location_lng": 116.4074,
-    "status": "pending",
-    "user_name": "zhangsan",
-    "created_at": "2026-06-24T10:00:00+08:00"
+    "MinLevel": 1,
+    "CommissionAmt": 2000,
+    "EstimatedAmount": 150000,
+    "DeliveryAddress": "北京市朝阳区建国路88号",
+    "DeliveryName": "张三",
+    "DeliveryPhone": "13800138000",
+    "LocationLat": 39.9042,
+    "LocationLng": 116.4074,
+    "Status": "pending",
+    "CreatedAt": "2026-06-24T10:00:00+08:00"
   }
 }
 ```
@@ -436,7 +425,7 @@ curl -X POST "http://localhost:8090/api/v1/procurement/intent/5/accept" \
     "msg": "Success"
   },
   "body": {
-    "message": "接取成功"
+    "Message": "接取成功"
   }
 }
 ```
@@ -466,14 +455,13 @@ curl "http://localhost:8090/api/v1/procurement/intent/5/order" \
   },
   "body": [
     {
-      "id": 1,
-      "order_number": "ORD202606241001",
-      "merchant_id": 1,
-      "merchant_name": "鲜果超市旗舰店",
-      "total_amount": 8500,
-      "status": "pending",
-      "payment_status": "pending",
-      "created_at": "2026-06-24T11:00:00+08:00"
+      "ID": 1,
+      "OrderNumber": "ORD202606241001",
+      "MerchantID": 1,
+      "TotalAmount": 8500,
+      "Status": "pending",
+      "PaymentStatus": "pending",
+      "CreatedAt": "2026-06-24T11:00:00+08:00"
     }
   ]
 }

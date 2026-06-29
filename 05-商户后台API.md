@@ -2,6 +2,10 @@
 
 商户（Merchant）后台管理接口。所有请求需要携带 `Authorization: Bearer <token>` 头部及商户域上下文。
 
+> **Logo 上传已迁移**：商户 Logo 上传功能已移至独立的图片上传服务（`service/image`），不再通过商户 API 处理。请调用 `POST /image/upload`（端口 8091）。详见 [08-图片上传服务API.md](./08-图片上传服务API.md)。
+
+> **字段命名变更**：本版起所有 API 响应中的 JSON 字段名改为 PascalCase（如 `UserID`、`CreatedAt`）。
+
 ---
 
 ## 基础路径
@@ -54,17 +58,17 @@ Base: `/api/v1/merchant/product`
   },
   "body": [
     {
-      "id": 101,
-      "name": "东北大米 50kg",
-      "price": 12000,
-      "stock": 200,
-      "category_id": 5,
-      "brand": "五常",
-      "sku": "NCDM-50KG-001",
-      "description": "优质东北五常大米，50kg装",
-      "images": ["https://cdn.example.com/rice_01.jpg"],
-      "status": "on",
-      "created_at": "2025-01-01T08:00:00Z"
+      "ID": 101,
+      "Name": "东北大米 50kg",
+      "Price": 12000,
+      "Stock": 200,
+      "CategoryID": 5,
+      "Brand": "五常",
+      "SKU": "NCDM-50KG-001",
+      "Description": "优质东北五常大米，50kg装",
+      "Images": ["https://cdn.example.com/rice_01.jpg"],
+      "Status": "on",
+      "CreatedAt": "2025-01-01T08:00:00Z"
     }
   ]
 }
@@ -102,18 +106,18 @@ curl -X GET "https://api.example.com/api/v1/merchant/product?page=1&page_size=20
     "msg": "Success"
   },
   "body": {
-  "id": 101,
-  "name": "东北大米 50kg",
-  "price": 12000,
-  "stock": 200,
-  "category_id": 5,
-  "brand": "五常",
-  "sku": "NCDM-50KG-001",
-  "description": "优质东北五常大米，50kg装",
-  "images": ["https://cdn.example.com/rice_01.jpg"],
-  "status": "on",
-  "created_at": "2025-01-01T08:00:00Z",
-  "updated_at": "2025-01-10T12:00:00Z"
+  "ID": 101,
+  "Name": "东北大米 50kg",
+  "Price": 12000,
+  "Stock": 200,
+  "CategoryID": 5,
+  "Brand": "五常",
+  "SKU": "NCDM-50KG-001",
+  "Description": "优质东北五常大米，50kg装",
+  "Images": ["https://cdn.example.com/rice_01.jpg"],
+  "Status": "on",
+  "CreatedAt": "2025-01-01T08:00:00Z",
+  "UpdatedAt": "2025-01-10T12:00:00Z"
 }
 }
 ```
@@ -172,17 +176,17 @@ curl -X GET "https://api.example.com/api/v1/merchant/product/101" \
     "msg": "Success"
   },
   "body": {
-  "id": 102,
-  "name": "东北大米 50kg",
-  "price": 12000,
-  "stock": 200,
-  "category_id": 5,
-  "brand": "五常",
-  "sku": "NCDM-50KG-001",
-  "description": "优质东北五常大米，50kg装",
-  "images": ["https://cdn.example.com/rice_01.jpg"],
-  "status": "on",
-  "created_at": "2025-01-16T10:00:00Z"
+  "ID": 102,
+  "Name": "东北大米 50kg",
+  "Price": 12000,
+  "Stock": 200,
+  "CategoryID": 5,
+  "Brand": "五常",
+  "SKU": "NCDM-50KG-001",
+  "Description": "优质东北五常大米，50kg装",
+  "Images": ["https://cdn.example.com/rice_01.jpg"],
+  "Status": "on",
+  "CreatedAt": "2025-01-16T10:00:00Z"
 }
 }
 ```
@@ -1188,14 +1192,13 @@ Base: `/api/v1/merchant/merchant`
     "msg": "Success"
   },
   "body": {
-  "id": 3,
-  "name": "好味道食材有限公司",
-  "contact_name": "王经理",
-  "contact_phone": "13800138000",
-  "address": "北京市海淀区中关村大街1号",
-  "logo_url": "https://cdn.example.com/merchant_logo.png",
-  "status": "active",
-  "created_at": "2024-06-01T00:00:00Z"
+  "ID": 3,
+  "Name": "好味道食材有限公司",
+  "Phone": "13800138000",
+  "Address": "北京市海淀区中关村大街1号",
+  "Logo": "https://cdn.example.com/merchant_logo.png",
+  "Status": "active",
+  "CreatedAt": "2024-06-01T00:00:00Z"
 }
 }
 ```
@@ -1244,14 +1247,13 @@ curl -X GET "https://api.example.com/api/v1/merchant/merchant" \
     "msg": "Success"
   },
   "body": {
-  "id": 3,
-  "name": "好味道食材有限公司",
-  "contact_name": "李经理",
-  "contact_phone": "13900139000",
-  "address": "北京市海淀区中关村大街1号",
-  "logo_url": "https://cdn.example.com/merchant_logo.png",
-  "status": "active",
-  "updated_at": "2025-01-16T15:00:00Z"
+  "ID": 3,
+  "Name": "好味道食材有限公司",
+  "Phone": "13900139000",
+  "Address": "北京市海淀区中关村大街1号",
+  "Logo": "https://cdn.example.com/merchant_logo.png",
+  "Status": "active",
+  "UpdatedAt": "2025-01-16T15:00:00Z"
 }
 }
 ```
@@ -1330,39 +1332,6 @@ curl -X POST "https://api.example.com/api/v1/merchant/merchant" \
     "contact_phone": "13700137000",
     "address": "上海市浦东新区张江路100号"
   }'
-```
-
----
-
-### 27. 上传商户 Logo
-
-上传商户 Logo 图片。
-
-- **URL**: `POST /api/v1/merchant/merchant/logo`
-- **Method**: `POST`
-- **Auth**: `Authorization: Bearer <token>` + 商户域上下文
-
-**请求体**: `multipart/form-data`
-
-| 字段 | 类型 | 必填 | 描述 |
-|------|------|------|------|
-| `logo` | file | 是 | Logo 图片文件 |
-
-**响应示例**:
-
-```json
-{
-  "logo_url": "https://cdn.example.com/merchant_logo_new.png",
-  "message": "Logo uploaded successfully"
-}
-```
-
-**Curl 示例**:
-
-```bash
-curl -X POST "https://api.example.com/api/v1/merchant/merchant/logo" \
-  -H "Authorization: Bearer <token>" \
-  -F "logo=@/path/to/logo.png"
 ```
 
 ---

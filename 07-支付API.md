@@ -63,11 +63,11 @@
     "msg": "Success"
   },
   "body": {
-    "order_id": "PAY2025012012345678",
-    "pay_url": "https://pay.alipay.com/xxxxxx",
-    "qr_code": "https://cdn.example.com/qrcodes/PAY2025012012345678.png",
-    "amount": 10000,
-    "expire_time": "2025-01-20T11:00:00Z"
+    "OrderID": "PAY2025012012345678",
+    "PayURL": "https://pay.alipay.com/xxxxxx",
+    "QRCode": "https://cdn.example.com/qrcodes/PAY2025012012345678.png",
+    "Amount": 10000,
+    "ExpireTime": "2025-01-20T11:00:00Z"
   }
 }
 ```
@@ -137,11 +137,11 @@ curl -X POST 'https://api.example.com/api/v1/payment/alipay/deposit' \
     "msg": "Success"
   },
   "body": {
-    "order_id": "PAY2025012098765432",
-    "pay_url": "https://pay.alipay.com/yyyyyy",
-    "qr_code": "https://cdn.example.com/qrcodes/PAY2025012098765432.png",
-    "amount": 5000,
-    "expire_time": "2025-01-20T11:00:00Z"
+    "OrderID": "PAY2025012098765432",
+    "PayURL": "https://pay.alipay.com/yyyyyy",
+    "QRCode": "https://cdn.example.com/qrcodes/PAY2025012098765432.png",
+    "Amount": 5000,
+    "ExpireTime": "2025-01-20T11:00:00Z"
   }
 }
 ```
@@ -323,11 +323,11 @@ curl -X GET 'https://api.example.com/api/v1/payment/alipay/return?app_id=2021001
     "msg": "Success"
   },
   "body": {
-    "order_id": "PAY2025012055555555",
-    "pay_url": "https://wx.tenpay.com/xxxxxx",
-    "qr_code": "https://cdn.example.com/qrcodes/PAY2025012055555555.png",
-    "amount": 5000,
-    "expire_time": "2025-01-20T11:00:00Z"
+    "OrderID": "PAY2025012055555555",
+    "PayURL": "https://wx.tenpay.com/xxxxxx",
+    "QRCode": "https://cdn.example.com/qrcodes/PAY2025012055555555.png",
+    "Amount": 5000,
+    "ExpireTime": "2025-01-20T11:00:00Z"
   }
 }
 ```
@@ -384,11 +384,11 @@ curl -X POST 'https://api.example.com/api/v1/payment/wechat/deposit' \
     "msg": "Success"
   },
   "body": {
-    "order_id": "PAY2025012066666666",
-    "pay_url": "https://wx.tenpay.com/yyyyyy",
-    "qr_code": "https://cdn.example.com/qrcodes/PAY2025012066666666.png",
-    "amount": 8800,
-    "expire_time": "2025-01-20T11:00:00Z"
+    "OrderID": "PAY2025012066666666",
+    "PayURL": "https://wx.tenpay.com/yyyyyy",
+    "QRCode": "https://cdn.example.com/qrcodes/PAY2025012066666666.png",
+    "Amount": 8800,
+    "ExpireTime": "2025-01-20T11:00:00Z"
   }
 }
 ```

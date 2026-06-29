@@ -85,6 +85,32 @@ Authorization: Bearer <access_token>
 | `access` | 短时效 | 接口访问 |
 | `refresh` | 长时效 | 刷新 access token |
 
+## 图片上传服务
+
+图片上传由独立节点 `service/image` 提供（端口 8091），全平台上统一使用。
+
+**文档**: [08-图片上传服务API.md](./08-图片上传服务API.md)
+
+**基础地址**: `http://localhost:8091`
+
+| 接口 | 方法 | 说明 |
+|------|------|------|
+| `/image/upload` | POST | 上传图片（含安全校验） |
+| `/image/delete` | DELETE | 删除图片 |
+| `/health` | GET | 健康检查 |
+
+---
+
+## 字段命名规范
+
+从本版本起，所有 API 响应中的 JSON 字段名采用**首字母大写的驼峰命名（PascalCase）**，如：
+
+- `UserID`（而非 `user_id`）
+- `CreatedAt`（而非 `created_at`）
+- `OrderNumber`（而非 `order_number`）
+
+---
+
 ## 国际化
 
 请求头 `Accept-Language` 控制响应消息语言：

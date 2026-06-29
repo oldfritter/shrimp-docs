@@ -37,18 +37,18 @@ curl "http://localhost:8090/api/v1/product?page=1&page_size=10&category_id=1"
   "body": [
     {
       "id": 1,
-      "merchant_id": 1,
-      "name": "新鲜有机苹果",
-      "description": "产地直供，新鲜有机苹果，每箱约5斤",
-      "price": 5000,
-      "stock": 200,
-      "category_id": 1,
-      "brand": "果园直供",
-      "sku": "APL-2024-001",
-      "images": "[\"https://oss.example.com/apple1.jpg\",\"https://oss.example.com/apple2.jpg\"]",
-      "status": "active",
-      "created_at": "2026-06-24T10:00:00+08:00",
-      "updated_at": "2026-06-24T10:00:00+08:00"
+      "MerchantID": 1,
+      "Name": "新鲜有机苹果",
+      "Description": "产地直供，新鲜有机苹果，每箱约5斤",
+      "Price": 5000,
+      "Stock": 200,
+      "CategoryID": 1,
+      "Brand": "果园直供",
+      "SKU": "APL-2024-001",
+      "Images": "[\"https://oss.example.com/apple1.jpg\",\"https://oss.example.com/apple2.jpg\"]",
+      "Status": "active",
+      "CreatedAt": "2026-06-24T10:00:00+08:00",
+      "UpdatedAt": "2026-06-24T10:00:00+08:00"
     }
   ],
   "pagination": {
@@ -93,31 +93,30 @@ curl "http://localhost:8090/api/v1/product/1"
   },
   "body": {
     "id": 1,
-    "merchant_id": 1,
-    "name": "新鲜有机苹果",
-    "description": "产地直供，新鲜有机苹果，每箱约5斤",
-    "price": 5000,
-    "currency_id": 1,
-    "stock": 200,
-    "category_id": 1,
-    "brand": "果园直供",
-    "sku": "APL-2024-001",
-    "images": "[\"https://oss.example.com/apple1.jpg\"]",
-    "status": "active",
-    "created_at": "2026-06-24T10:00:00+08:00",
-    "updated_at": "2026-06-24T10:00:00+08:00",
-    "category": {
+    "MerchantID": 1,
+    "Name": "新鲜有机苹果",
+    "Description": "产地直供，新鲜有机苹果，每箱约5斤",
+    "Price": 5000,
+    "CurrencyID": 1,
+    "Stock": 200,
+    "CategoryID": 1,
+    "Brand": "果园直供",
+    "SKU": "APL-2024-001",
+    "Images": "[\"https://oss.example.com/apple1.jpg\"]",
+    "Status": "active",
+    "CreatedAt": "2026-06-24T10:00:00+08:00",
+    "UpdatedAt": "2026-06-24T10:00:00+08:00",
+    "Category": {
       "id": 1,
-      "name": "水果",
-      "description": "新鲜水果",
-      "parent_id": null,
-      "status": "active"
+      "Name": "水果",
+      "Description": "新鲜水果",
+      "ParentID": null,
+      "Status": "active"
     },
-    "merchant": {
+    "Merchant": {
       "id": 1,
-      "name": "鲜果超市旗舰店",
-      "code": "FRESH001",
-      "status": "active"
+      "Name": "鲜果超市旗舰店",
+      "Status": "active"
     }
   }
 }
@@ -256,9 +255,9 @@ curl -X POST "http://localhost:8090/api/v1/register" \
     "msg": "Success"
   },
   "body": {
-    "message": "注册成功",
-    "user_id": 42,
-    "username": "zhangsan"
+    "Message": "注册成功",
+    "UserID": 42,
+    "Username": "zhangsan"
   }
 }
 ```
@@ -309,18 +308,18 @@ curl -X POST "http://localhost:8090/api/v1/login" \
     "msg": "Success"
   },
   "body": {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0MiwiZXhwIjoxNzE5MjM0NTY3fQ...",
-    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0MiwiZXhwIjoxNzE5NDA3MzY3fQ...",
-    "token_type": "access",
-    "expires_in": 7200,
-    "user_id": 42,
-    "username": "zhangsan",
-    "phone": "13800138000",
-    "roles": [
+    "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0MiwiZXhwIjoxNzE5MjM0NTY3fQ...",
+    "RefreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0MiwiZXhwIjoxNzE5NDA3MzY3fQ...",
+    "TokenType": "access",
+    "ExpiresIn": 7200,
+    "UserID": 42,
+    "Username": "zhangsan",
+    "Phone": "13800138000",
+    "Roles": [
       {
         "id": 1,
-        "name": "普通用户",
-        "admin": false
+        "Name": "普通用户",
+        "Admin": false
       }
     ]
   }
@@ -368,19 +367,19 @@ curl "http://localhost:8090/api/v1/profile" \
     "msg": "Success"
   },
   "body": {
-    "id": 42,
-    "username": "zhangsan",
-    "phone": "13800138000",
-    "avatar": "",
-    "status": "active",
-    "roles": [
+    "ID": 42,
+    "Username": "zhangsan",
+    "Phone": "13800138000",
+    "Avatar": "",
+    "Status": "active",
+    "Roles": [
       {
         "id": 1,
-        "name": "普通用户",
-        "admin": false
+        "Name": "普通用户",
+        "Admin": false
       }
     ],
-    "created_at": "2026-06-20T08:30:00+08:00"
+    "CreatedAt": "2026-06-20T08:30:00+08:00"
   }
 }
 ```
