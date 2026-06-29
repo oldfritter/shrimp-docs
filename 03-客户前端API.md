@@ -148,7 +148,7 @@ curl -X POST "http://localhost:8090/api/v1/customer/order/1/cancel" \
     "Msg": "Success"
   },
   "Body": {
-    "message": "取消成功"
+    "Message": "取消成功"
   }
 }
 ```
@@ -179,7 +179,7 @@ curl -X POST "http://localhost:8090/api/v1/customer/order/1/confirm" \
     "Msg": "Success"
   },
   "Body": {
-    "message": "确认收货成功"
+    "Message": "确认收货成功"
   }
 }
 ```
@@ -207,9 +207,9 @@ curl -X POST "http://localhost:8090/api/v1/customer/order/refund" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIs..." \
   -H "Content-Type: application/json" \
   -d '{
-    "order_id": 1,
+    "OrderID": 1,
     "amount": 8500,
-    "reason": "商品品质不符"
+    "Reason": "商品品质不符"
   }'
 ```
 
@@ -223,11 +223,11 @@ curl -X POST "http://localhost:8090/api/v1/customer/order/refund" \
   },
   "Body": {
     "ID": 1,
-    "order_id": 1,
+    "OrderID": 1,
     "amount": 8500,
-    "reason": "商品品质不符",
-    "status": "pending",
-    "created_at": "2026-06-24T15:00:00+08:00"
+    "Reason": "商品品质不符",
+    "Status": "pending",
+    "CreatedAt": "2026-06-24T15:00:00+08:00"
   }
 }
 ```
@@ -258,12 +258,12 @@ curl "http://localhost:8090/api/v1/customer/order/refund" \
   "Body": [
     {
       "ID": 1,
-      "income_id": 0,
-      "order_id": 1,
+      "IncomeID": 0,
+      "OrderID": 1,
       "amount": 8500,
-      "reason": "商品品质不符",
-      "status": "pending",
-      "created_at": "2026-06-24T15:00:00+08:00"
+      "Reason": "商品品质不符",
+      "Status": "pending",
+      "CreatedAt": "2026-06-24T15:00:00+08:00"
     }
   ]
 }
@@ -295,10 +295,10 @@ curl "http://localhost:8090/api/v1/customer/shipping/track/1" \
     "Msg": "Success"
   },
   "Body": {
-    "order_id": 1,
-    "tracking_number": "SF1234567890",
-    "carrier": "顺丰速运",
-    "status": "in_transit",
+    "OrderID": 1,
+    "TrackingNumber": "SF1234567890",
+    "Carrier": "顺丰速运",
+    "Status": "in_transit",
     "events": [
       {
         "time": "2026-06-24T12:00:00+08:00",
@@ -343,10 +343,10 @@ curl "http://localhost:8090/api/v1/customer/message" \
   "Body": [
     {
       "ID": 1,
-      "title": "采购订单已确认",
-      "content": "您的采购意向 #5 已被采购员接取",
-      "is_read": false,
-      "created_at": "2026-06-24T11:00:00+08:00"
+      "Title": "采购订单已确认",
+      "Content": "您的采购意向 #5 已被采购员接取",
+      "IsRead": false,
+      "CreatedAt": "2026-06-24T11:00:00+08:00"
     }
   ]
 }
@@ -376,7 +376,7 @@ curl -X POST "http://localhost:8090/api/v1/customer/message/1/read" \
     "Msg": "Success"
   },
   "Body": {
-    "message": "已标记为已读"
+    "Message": "已标记为已读"
   }
 }
 ```
@@ -405,7 +405,7 @@ curl -X DELETE "http://localhost:8090/api/v1/customer/message/1" \
     "Msg": "Success"
   },
   "Body": {
-    "message": "已删除"
+    "Message": "已删除"
   }
 }
 ```
@@ -451,35 +451,35 @@ curl -X POST "http://localhost:8090/api/v1/customer/intent" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIs..." \
   -H "Content-Type: application/json" \
   -d '{
-    "title": "采购一批新鲜水果",
+    "Title": "采购一批新鲜水果",
     "description": "需要新鲜水果用于公司团建",
-    "products": [
+    "Products": [
       {
-        "product_name": "红富士苹果",
-        "quantity": 50,
-        "quality_requirement": "果径80mm以上，无虫眼",
-        "price_range_min": 3000,
-        "price_range_max": 5000
+        "ProductName": "红富士苹果",
+        "Quantity": 50,
+        "QualityRequirement": "果径80mm以上，无虫眼",
+        "PriceRangeMin": 3000,
+        "PriceRangeMax": 5000
       },
       {
-        "product_name": "进口香蕉",
-        "quantity": 30,
-        "quality_requirement": "成熟度适中，无黑斑",
-        "price_range_min": 2000,
-        "price_range_max": 4000
+        "ProductName": "进口香蕉",
+        "Quantity": 30,
+        "QualityRequirement": "成熟度适中，无黑斑",
+        "PriceRangeMin": 2000,
+        "PriceRangeMax": 4000
       }
     ],
-    "min_level": 1,
-    "commission_amt": 2000,
-    "commission_currency_id": 1,
-    "estimated_amount": 150000,
-    "quality_require": "新鲜，无腐烂，当天采摘",
-    "location_lat": 39.9042,
-    "location_lng": 116.4074,
-    "location_name": "北京市朝阳区",
-    "delivery_address": "北京市朝阳区建国路88号",
-    "delivery_name": "张三",
-    "delivery_phone": "13800138000"
+    "MinLevel": 1,
+    "CommissionAmt": 2000,
+    "CommissionCurrencyID": 1,
+    "EstimatedAmount": 150000,
+    "QualityRequire": "新鲜，无腐烂，当天采摘",
+    "LocationLat": 39.9042,
+    "LocationLng": 116.4074,
+    "LocationName": "北京市朝阳区",
+    "DeliveryAddress": "北京市朝阳区建国路88号",
+    "DeliveryName": "张三",
+    "DeliveryPhone": "13800138000"
   }'
 ```
 
@@ -493,33 +493,33 @@ curl -X POST "http://localhost:8090/api/v1/customer/intent" \
   },
   "Body": {
     "ID": 5,
-    "user_id": 42,
-    "user_name": "zhangsan",
-    "title": "采购一批新鲜水果",
+    "UserID": 42,
+    "UserName": "zhangsan",
+    "Title": "采购一批新鲜水果",
     "description": "需要新鲜水果用于公司团建",
-    "products": [
+    "Products": [
       {
-        "product_name": "红富士苹果",
-        "quantity": 50,
-        "quality_requirement": "果径80mm以上，无虫眼",
-        "price_range_min": 3000,
-        "price_range_max": 5000
+        "ProductName": "红富士苹果",
+        "Quantity": 50,
+        "QualityRequirement": "果径80mm以上，无虫眼",
+        "PriceRangeMin": 3000,
+        "PriceRangeMax": 5000
       }
     ],
-    "min_level": 1,
-    "commission_amt": 2000,
-    "commission_currency_id": 1,
-    "commission_currency": "人民币",
-    "estimated_amount": 150000,
-    "quality_require": "新鲜，无腐烂，当天采摘",
-    "location_lat": 39.9042,
-    "location_lng": 116.4074,
-    "location_name": "北京市朝阳区",
-    "delivery_address": "北京市朝阳区建国路88号",
-    "delivery_name": "张三",
-    "delivery_phone": "13800138000",
-    "status": "pending",
-    "created_at": "2026-06-24T10:00:00+08:00"
+    "MinLevel": 1,
+    "CommissionAmt": 2000,
+    "CommissionCurrencyID": 1,
+    "CommissionCurrency": "人民币",
+    "EstimatedAmount": 150000,
+    "QualityRequire": "新鲜，无腐烂，当天采摘",
+    "LocationLat": 39.9042,
+    "LocationLng": 116.4074,
+    "LocationName": "北京市朝阳区",
+    "DeliveryAddress": "北京市朝阳区建国路88号",
+    "DeliveryName": "张三",
+    "DeliveryPhone": "13800138000",
+    "Status": "pending",
+    "CreatedAt": "2026-06-24T10:00:00+08:00"
   }
 }
 ```
@@ -558,16 +558,16 @@ curl "http://localhost:8090/api/v1/customer/intent/me?status=pending" \
   "Body": [
     {
       "ID": 5,
-      "title": "采购一批新鲜水果",
-      "status": "pending",
-      "commission_amt": 2000,
-      "estimated_amount": 150000,
-      "products": [
-        { "product_name": "红富士苹果", "quantity": 50 }
+      "Title": "采购一批新鲜水果",
+      "Status": "pending",
+      "CommissionAmt": 2000,
+      "EstimatedAmount": 150000,
+      "Products": [
+        { "ProductName": "红富士苹果", "Quantity": 50 }
       ],
-      "delivery_address": "北京市朝阳区建国路88号",
-      "created_at": "2026-06-24T10:00:00+08:00",
-      "procurement_name": null
+      "DeliveryAddress": "北京市朝阳区建国路88号",
+      "CreatedAt": "2026-06-24T10:00:00+08:00",
+      "ProcurementName": null
     }
   ],
   "Pagination": {
@@ -608,7 +608,7 @@ curl -X POST "http://localhost:8090/api/v1/customer/intent/5/cancel" \
     "Msg": "Success"
   },
   "Body": {
-    "message": "取消成功"
+    "Message": "取消成功"
   }
 }
 ```

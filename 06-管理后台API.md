@@ -41,9 +41,9 @@ Base: `/api/v1/admin`
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "TotalUsers": 1280,
@@ -90,9 +90,9 @@ curl -X GET 'https://api.example.com/api/v1/admin/dashboard' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "UserGrowth": { "2025-01-01": 10, "2025-01-02": 15 },
@@ -141,9 +141,9 @@ Base: `/api/v1/admin/merchant`
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": [
     {
@@ -197,9 +197,9 @@ curl -X GET 'https://api.example.com/api/v1/admin/merchant?page=1&page_size=20&s
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "ID": 1,
@@ -257,16 +257,16 @@ curl -X GET 'https://api.example.com/api/v1/admin/merchant/1' \
 
 ```json
 {
-  "name": "新商户",
-  "code": "MERCHANT002",
-  "domain": "newshop.example.com",
+  "Name": "新商户",
+  "Code": "MERCHANT002",
+  "Domain": "newshop.example.com",
   "OwnerID": 10,
-  "phone": "13800000002",
-  "description": "新入驻商户",
-  "address": "上海市浦东新区xx路200号",
-  "province": "上海市",
-  "city": "上海市",
-  "district": "浦东新区"
+  "Phone": "13800000002",
+  "Description": "新入驻商户",
+  "Address": "上海市浦东新区xx路200号",
+  "Province": "上海市",
+  "City": "上海市",
+  "District": "浦东新区"
 }
 ```
 
@@ -274,9 +274,9 @@ curl -X GET 'https://api.example.com/api/v1/admin/merchant/1' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "ID": 2,
@@ -297,9 +297,9 @@ curl -X POST 'https://api.example.com/api/v1/admin/merchant' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "name": "新商户",
-    "code": "MERCHANT002",
-    "domain": "newshop.example.com",
+    "Name": "新商户",
+    "Code": "MERCHANT002",
+    "Domain": "newshop.example.com",
     "OwnerID": 10
   }'
 ```
@@ -329,9 +329,9 @@ curl -X POST 'https://api.example.com/api/v1/admin/merchant' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "ID": 1,
@@ -350,8 +350,8 @@ curl -X PUT 'https://api.example.com/api/v1/admin/merchant/1' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "name": "更新后的商户名称",
-    "domain": "updated.example.com"
+    "Name": "更新后的商户名称",
+    "Domain": "updated.example.com"
   }'
 ```
 
@@ -377,9 +377,9 @@ curl -X PUT 'https://api.example.com/api/v1/admin/merchant/1' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   }
 }
 ```
@@ -420,9 +420,9 @@ Base: `/api/v1/admin/user`
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": [
     {
@@ -476,9 +476,9 @@ curl -X GET 'https://api.example.com/api/v1/admin/user?page=1&page_size=20&statu
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "ID": 1,
@@ -531,8 +531,8 @@ curl -X GET 'https://api.example.com/api/v1/admin/user/1' \
 
 ```json
 {
-  "username": "newname",
-  "status": "active"
+  "Username": "newname",
+  "Status": "active"
 }
 ```
 
@@ -540,9 +540,9 @@ curl -X GET 'https://api.example.com/api/v1/admin/user/1' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "ID": 1,
@@ -562,8 +562,8 @@ curl -X PUT 'https://api.example.com/api/v1/admin/user/1' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "username": "newname",
-    "status": "active"
+    "Username": "newname",
+    "Status": "active"
   }'
 ```
 
@@ -594,9 +594,9 @@ Base: `/api/v1/admin/role`
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": [
     {
@@ -659,19 +659,19 @@ curl -X GET 'https://api.example.com/api/v1/admin/role?page=1&page_size=20' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "ID": 1,
-    "name": "超级管理员",
-    "description": "平台超级管理员",
+    "Name": "超级管理员",
+    "Description": "平台超级管理员",
     "MerchantID": null,
-    "admin": true,
-    "permissions": ["user:read", "user:write", "merchant:read", "merchant:write"],
-    "created_at": "2025-01-01T00:00:00Z",
-    "updated_at": "2025-01-01T00:00:00Z"
+    "Admin": true,
+    "Permissions": ["user:read", "user:write", "merchant:read", "merchant:write"],
+    "CreatedAt": "2025-01-01T00:00:00Z",
+    "UpdatedAt": "2025-01-01T00:00:00Z"
   }
 }
 ```
@@ -709,10 +709,10 @@ curl -X GET 'https://api.example.com/api/v1/admin/role/1' \
 
 ```json
 {
-  "name": "运营人员",
+  "Name": "运营人员",
   "MerchantID": 1,
-  "description": "商户运营角色",
-  "admin": false
+  "Description": "商户运营角色",
+  "Admin": false
 }
 ```
 
@@ -720,18 +720,18 @@ curl -X GET 'https://api.example.com/api/v1/admin/role/1' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "ID": 3,
-    "name": "运营人员",
+    "Name": "运营人员",
     "MerchantID": 1,
-    "description": "商户运营角色",
-    "admin": false,
-    "created_at": "2025-01-20T10:00:00Z",
-    "updated_at": "2025-01-20T10:00:00Z"
+    "Description": "商户运营角色",
+    "Admin": false,
+    "CreatedAt": "2025-01-20T10:00:00Z",
+    "UpdatedAt": "2025-01-20T10:00:00Z"
   }
 }
 ```
@@ -743,10 +743,10 @@ curl -X POST 'https://api.example.com/api/v1/admin/role' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "name": "运营人员",
+    "Name": "运营人员",
     "MerchantID": 1,
-    "description": "商户运营角色",
-    "admin": false
+    "Description": "商户运营角色",
+    "Admin": false
   }'
 ```
 
@@ -775,17 +775,17 @@ curl -X POST 'https://api.example.com/api/v1/admin/role' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "ID": 3,
-    "name": "高级运营",
+    "Name": "高级运营",
     "MerchantID": 1,
-    "description": "升级后的角色",
-    "admin": false,
-    "updated_at": "2025-01-20T12:00:00Z"
+    "Description": "升级后的角色",
+    "Admin": false,
+    "UpdatedAt": "2025-01-20T12:00:00Z"
   }
 }
 ```
@@ -797,8 +797,8 @@ curl -X PUT 'https://api.example.com/api/v1/admin/role/3' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "name": "高级运营",
-    "description": "升级后的角色"
+    "Name": "高级运营",
+    "Description": "升级后的角色"
   }'
 ```
 
@@ -824,9 +824,9 @@ curl -X PUT 'https://api.example.com/api/v1/admin/role/3' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   }
 }
 ```
@@ -866,9 +866,9 @@ Base: `/api/v1/admin/qualification`
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": [
     {
@@ -927,8 +927,8 @@ curl -X GET 'https://api.example.com/api/v1/admin/qualification?status=pending&p
 
 ```json
 {
-  "action": "approve",
-  "remark": "资质齐全，审核通过"
+  "Action": "approve",
+  "Remark": "资质齐全，审核通过"
 }
 ```
 
@@ -936,14 +936,14 @@ curl -X GET 'https://api.example.com/api/v1/admin/qualification?status=pending&p
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "ID": 1,
-    "status": "approved",
-    "remark": "资质齐全，审核通过",
+    "Status": "approved",
+    "Remark": "资质齐全，审核通过",
     "ReviewedAt": "2025-01-20T12:00:00Z"
   }
 }
@@ -956,8 +956,8 @@ curl -X POST 'https://api.example.com/api/v1/admin/qualification/1/approve' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "action": "approve",
-    "remark": "资质齐全，审核通过"
+    "Action": "approve",
+    "Remark": "资质齐全，审核通过"
   }'
 ```
 
@@ -990,21 +990,21 @@ Base: `/api/v1/admin/intent`
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": [
     {
       "ID": 1,
-      "name": "张三",
-      "phone": "13800000001",
-      "email": "zhangsan@example.com",
-      "status": "new",
-      "source": "website",
-      "remark": "有意入驻平台",
-      "created_at": "2025-01-19T08:00:00Z",
-      "updated_at": "2025-01-19T08:00:00Z"
+      "Name": "张三",
+      "Phone": "13800000001",
+      "Email": "zhangsan@example.com",
+      "Status": "new",
+      "Source": "website",
+      "Remark": "有意入驻平台",
+      "CreatedAt": "2025-01-19T08:00:00Z",
+      "UpdatedAt": "2025-01-19T08:00:00Z"
     }
   ],
   "Pagination": {
@@ -1048,27 +1048,27 @@ curl -X GET 'https://api.example.com/api/v1/admin/intent?status=new&page=1&page_
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "ID": 1,
-    "name": "张三",
-    "phone": "13800000001",
-    "email": "zhangsan@example.com",
-    "company": "某某科技有限公司",
-    "status": "new",
-    "source": "website",
-    "remark": "有意入驻平台",
+    "Name": "张三",
+    "Phone": "13800000001",
+    "Email": "zhangsan@example.com",
+    "Company": "某某科技有限公司",
+    "Status": "new",
+    "Source": "website",
+    "Remark": "有意入驻平台",
     "ContactHistory": [
       {
         "ContactedAt": "2025-01-19T10:00:00Z",
-        "note": "已发送入驻指南邮件"
+        "Note": "已发送入驻指南邮件"
       }
     ],
-    "created_at": "2025-01-19T08:00:00Z",
-    "updated_at": "2025-01-19T10:00:00Z"
+    "CreatedAt": "2025-01-19T08:00:00Z",
+    "UpdatedAt": "2025-01-19T10:00:00Z"
   }
 }
 ```
@@ -1111,23 +1111,23 @@ Base: `/api/v1/admin/product`
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": [
     {
       "ID": 1,
-      "name": "示例商品",
+      "Name": "示例商品",
       "MerchantID": 1,
-      "merchant_name": "示例商户",
-      "category_id": 2,
-      "category_name": "电子产品",
-      "price": 9999,
-      "status": "active",
-      "stock": 100,
-      "created_at": "2025-01-10T00:00:00Z",
-      "updated_at": "2025-01-15T12:00:00Z"
+      "MerchantName": "示例商户",
+      "CategoryID": 2,
+      "CategoryName": "电子产品",
+      "Price": 9999,
+      "Status": "active",
+      "Stock": 100,
+      "CreatedAt": "2025-01-10T00:00:00Z",
+      "UpdatedAt": "2025-01-15T12:00:00Z"
     }
   ],
   "Pagination": {
@@ -1171,25 +1171,25 @@ curl -X GET 'https://api.example.com/api/v1/admin/product?page=1&page_size=20&st
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "ID": 1,
-    "name": "示例商品",
+    "Name": "示例商品",
     "MerchantID": 1,
-    "merchant_name": "示例商户",
-    "category_id": 2,
-    "category_name": "电子产品",
-    "description": "这是一款示例商品",
-    "images": ["https://cdn.example.com/products/1/1.jpg"],
-    "price": 9999,
-    "status": "active",
-    "stock": 100,
-    "sales": 50,
-    "created_at": "2025-01-10T00:00:00Z",
-    "updated_at": "2025-01-15T12:00:00Z"
+    "MerchantName": "示例商户",
+    "CategoryID": 2,
+    "CategoryName": "电子产品",
+    "Description": "这是一款示例商品",
+    "Images": ["https://cdn.example.com/products/1/1.jpg"],
+    "Price": 9999,
+    "Status": "active",
+    "Stock": 100,
+    "Sales": 50,
+    "CreatedAt": "2025-01-10T00:00:00Z",
+    "UpdatedAt": "2025-01-15T12:00:00Z"
   }
 }
 ```
@@ -1231,14 +1231,14 @@ curl -X GET 'https://api.example.com/api/v1/admin/product/1' \
 
 ```json
 {
-  "name": "新产品",
+  "Name": "新产品",
   "MerchantID": 1,
-  "category_id": 2,
-  "price": 19900,
-  "description": "这是新产品描述",
-  "images": ["https://cdn.example.com/products/new/1.jpg"],
-  "stock": 200,
-  "status": "active"
+  "CategoryID": 2,
+  "Price": 19900,
+  "Description": "这是新产品描述",
+  "Images": ["https://cdn.example.com/products/new/1.jpg"],
+  "Stock": 200,
+  "Status": "active"
 }
 ```
 
@@ -1246,20 +1246,20 @@ curl -X GET 'https://api.example.com/api/v1/admin/product/1' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "ID": 100,
-    "name": "新产品",
+    "Name": "新产品",
     "MerchantID": 1,
-    "category_id": 2,
-    "price": 19900,
-    "status": "active",
-    "stock": 200,
-    "created_at": "2025-01-20T10:00:00Z",
-    "updated_at": "2025-01-20T10:00:00Z"
+    "CategoryID": 2,
+    "Price": 19900,
+    "Status": "active",
+    "Stock": 200,
+    "CreatedAt": "2025-01-20T10:00:00Z",
+    "UpdatedAt": "2025-01-20T10:00:00Z"
   }
 }
 ```
@@ -1271,14 +1271,14 @@ curl -X POST 'https://api.example.com/api/v1/admin/product' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "name": "新产品",
+    "Name": "新产品",
     "MerchantID": 1,
-    "category_id": 2,
-    "price": 19900,
-    "description": "这是新产品描述",
-    "images": ["https://cdn.example.com/products/new/1.jpg"],
-    "stock": 200,
-    "status": "active"
+    "CategoryID": 2,
+    "Price": 19900,
+    "Description": "这是新产品描述",
+    "Images": ["https://cdn.example.com/products/new/1.jpg"],
+    "Stock": 200,
+    "Status": "active"
   }'
 ```
 
@@ -1307,15 +1307,15 @@ curl -X POST 'https://api.example.com/api/v1/admin/product' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "ID": 100,
-    "name": "更新后的产品",
-    "price": 23900,
-    "updated_at": "2025-01-20T12:00:00Z"
+    "Name": "更新后的产品",
+    "Price": 23900,
+    "UpdatedAt": "2025-01-20T12:00:00Z"
   }
 }
 ```
@@ -1327,8 +1327,8 @@ curl -X PUT 'https://api.example.com/api/v1/admin/product/100' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "name": "更新后的产品",
-    "price": 23900
+    "Name": "更新后的产品",
+    "Price": 23900
   }'
 ```
 
@@ -1354,9 +1354,9 @@ curl -X PUT 'https://api.example.com/api/v1/admin/product/100' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   }
 }
 ```
@@ -1394,9 +1394,9 @@ Base: `/api/v1/admin/category`
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "Pagination": {
     "Per": 20,
@@ -1410,21 +1410,21 @@ Base: `/api/v1/admin/category`
   "body": [
     {
       "ID": 1,
-      "name": "电子产品",
-      "parent_id": null,
-      "sort_order": 1,
-      "status": "active",
-      "created_at": "2025-01-01T00:00:00Z",
-      "updated_at": "2025-01-01T00:00:00Z"
+      "Name": "电子产品",
+      "ParentID": null,
+      "SortOrder": 1,
+      "Status": "active",
+      "CreatedAt": "2025-01-01T00:00:00Z",
+      "UpdatedAt": "2025-01-01T00:00:00Z"
     },
     {
       "ID": 2,
-      "name": "手机通讯",
-      "parent_id": 1,
-      "sort_order": 1,
-      "status": "active",
-      "created_at": "2025-01-02T00:00:00Z",
-      "updated_at": "2025-01-02T00:00:00Z"
+      "Name": "手机通讯",
+      "ParentID": 1,
+      "SortOrder": 1,
+      "Status": "active",
+      "CreatedAt": "2025-01-02T00:00:00Z",
+      "UpdatedAt": "2025-01-02T00:00:00Z"
     }
   ]
 }
@@ -1459,27 +1459,27 @@ curl -X GET 'https://api.example.com/api/v1/admin/category' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "ID": 1,
-    "name": "电子产品",
-    "parent_id": null,
-    "sort_order": 1,
-    "status": "active",
+    "Name": "电子产品",
+    "ParentID": null,
+    "SortOrder": 1,
+    "Status": "active",
     "children": [
       {
         "ID": 2,
-        "name": "手机通讯",
-        "parent_id": 1,
-        "sort_order": 1,
-        "status": "active"
+        "Name": "手机通讯",
+        "ParentID": 1,
+        "SortOrder": 1,
+        "Status": "active"
       }
     ],
-    "created_at": "2025-01-01T00:00:00Z",
-    "updated_at": "2025-01-01T00:00:00Z"
+    "CreatedAt": "2025-01-01T00:00:00Z",
+    "UpdatedAt": "2025-01-01T00:00:00Z"
   }
 }
 ```
@@ -1517,10 +1517,10 @@ curl -X GET 'https://api.example.com/api/v1/admin/category/1' \
 
 ```json
 {
-  "name": "智能家居",
-  "parent_id": 1,
-  "sort_order": 3,
-  "status": "active"
+  "Name": "智能家居",
+  "ParentID": 1,
+  "SortOrder": 3,
+  "Status": "active"
 }
 ```
 
@@ -1528,18 +1528,18 @@ curl -X GET 'https://api.example.com/api/v1/admin/category/1' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "ID": 21,
-    "name": "智能家居",
-    "parent_id": 1,
-    "sort_order": 3,
-    "status": "active",
-    "created_at": "2025-01-20T10:00:00Z",
-    "updated_at": "2025-01-20T10:00:00Z"
+    "Name": "智能家居",
+    "ParentID": 1,
+    "SortOrder": 3,
+    "Status": "active",
+    "CreatedAt": "2025-01-20T10:00:00Z",
+    "UpdatedAt": "2025-01-20T10:00:00Z"
   }
 }
 ```
@@ -1551,9 +1551,9 @@ curl -X POST 'https://api.example.com/api/v1/admin/category' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "name": "智能家居",
-    "parent_id": 1,
-    "sort_order": 3
+    "Name": "智能家居",
+    "ParentID": 1,
+    "SortOrder": 3
   }'
 ```
 
@@ -1582,15 +1582,15 @@ curl -X POST 'https://api.example.com/api/v1/admin/category' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
   "body": {
     "ID": 21,
-    "name": "智能家居设备",
-    "sort_order": 2,
-    "updated_at": "2025-01-20T12:00:00Z"
+    "Name": "智能家居设备",
+    "SortOrder": 2,
+    "UpdatedAt": "2025-01-20T12:00:00Z"
   }
 }
 ```
@@ -1602,8 +1602,8 @@ curl -X PUT 'https://api.example.com/api/v1/admin/category/21' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "name": "智能家居设备",
-    "sort_order": 2
+    "Name": "智能家居设备",
+    "SortOrder": 2
   }'
 ```
 
@@ -1631,9 +1631,9 @@ curl -X PUT 'https://api.example.com/api/v1/admin/category/21' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   }
 }
 ```
@@ -1663,9 +1663,9 @@ curl -X DELETE 'https://api.example.com/api/v1/admin/category/21' \
 ```json
 {
   "items": [
-    { "ID": 1, "sort_order": 1 },
-    { "ID": 2, "sort_order": 2 },
-    { "ID": 21, "sort_order": 3 }
+    { "ID": 1, "SortOrder": 1 },
+    { "ID": 2, "SortOrder": 2 },
+    { "ID": 21, "SortOrder": 3 }
   ]
 }
 ```
@@ -1674,9 +1674,9 @@ curl -X DELETE 'https://api.example.com/api/v1/admin/category/21' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   }
 }
 ```
@@ -1689,8 +1689,8 @@ curl -X PUT 'https://api.example.com/api/v1/admin/category/batch-order' \
   -H 'Content-Type: application/json' \
   -d '{
     "items": [
-      { "ID": 1, "sort_order": 1 },
-      { "ID": 2, "sort_order": 2 }
+      { "ID": 1, "SortOrder": 1 },
+      { "ID": 2, "SortOrder": 2 }
     ]
   }'
 ```
@@ -1711,9 +1711,9 @@ curl -X PUT 'https://api.example.com/api/v1/admin/category/batch-order' \
 
 ```json
 {
-  "head": {
-    "code": "1001",
-    "msg": "名称不能为空"
+  "Head": {
+    "Code": "1001",
+    "Msg": "名称不能为空"
   }
 }
 ```

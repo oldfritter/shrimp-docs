@@ -156,13 +156,13 @@ curl -X GET "https://api.example.com/api/v1/merchant/product/101" \
 
 ```json
 {
-  "name": "东北大米 50kg",
+  "Name": "东北大米 50kg",
   "price": 12000,
   "stock": 200,
   "CategoryID": 5,
   "brand": "五常",
   "sku": "NCDM-50KG-001",
-  "description": "优质东北五常大米，50kg装",
+  "Description": "优质东北五常大米，50kg装",
   "images": ["https://cdn.example.com/rice_01.jpg"]
 }
 ```
@@ -198,13 +198,13 @@ curl -X POST "https://api.example.com/api/v1/merchant/product" \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "东北大米 50kg",
+    "Name": "东北大米 50kg",
     "price": 12000,
     "stock": 200,
     "CategoryID": 5,
     "brand": "五常",
     "sku": "NCDM-50KG-001",
-    "description": "优质东北五常大米，50kg装",
+    "Description": "优质东北五常大米，50kg装",
     "images": ["https://cdn.example.com/rice_01.jpg"]
   }'
 ```
@@ -257,15 +257,15 @@ curl -X POST "https://api.example.com/api/v1/merchant/product" \
   },
   "Body": {
   "ID": 101,
-  "name": "东北大米 50kg",
+  "Name": "东北大米 50kg",
   "price": 11000,
   "stock": 250,
   "CategoryID": 5,
   "brand": "五常",
   "sku": "NCDM-50KG-001",
-  "description": "优质东北五常大米，50kg装",
+  "Description": "优质东北五常大米，50kg装",
   "images": ["https://cdn.example.com/rice_01.jpg"],
-  "status": "on",
+  "Status": "on",
   "UpdatedAt": "2025-01-16T11:00:00Z"
 }
 }
@@ -366,7 +366,7 @@ Base: `/api/v1/merchant/order`
       "ID": 2001,
       "OrderNo": "ORD202501150001",
       "TotalAmount": 6000000,
-      "status": "paid",
+      "Status": "paid",
       "UserName": "张三",
       "CreatedAt": "2025-01-15T12:00:00Z"
     }
@@ -409,7 +409,7 @@ curl -X GET "https://api.example.com/api/v1/merchant/order?page=1&page_size=20&s
   "ID": 2001,
   "OrderNo": "ORD202501150001",
   "TotalAmount": 6000000,
-  "status": "paid",
+  "Status": "paid",
   "UserName": "张三",
   "ShippingAddress": "北京市朝阳区建国路88号",
   "remark": "请尽快发货",
@@ -459,7 +459,7 @@ curl -X GET "https://api.example.com/api/v1/merchant/order/2001" \
 
 ```json
 {
-  "status": "processing"
+  "Status": "processing"
 }
 ```
 
@@ -481,7 +481,7 @@ curl -X PUT "https://api.example.com/api/v1/merchant/order/2001/status" \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{
-    "status": "processing"
+    "Status": "processing"
   }'
 ```
 
@@ -527,10 +527,10 @@ curl -X PUT "https://api.example.com/api/v1/merchant/order/2001/status" \
   },
   "Body": {
   "ID": 2001,
-  "status": "shipped",
+  "Status": "shipped",
   "TrackingNumber": "SF1234567890",
   "Carrier": "顺丰",
-  "message": "Order shipped successfully"
+  "Message": "Order shipped successfully"
 }
 }
 ```
@@ -570,8 +570,8 @@ curl -X PUT "https://api.example.com/api/v1/merchant/order/2001/ship" \
 ```json
 {
   "ID": 2001,
-  "status": "cancelled",
-  "message": "Order cancelled successfully"
+  "Status": "cancelled",
+  "Message": "Order cancelled successfully"
 }
 ```
 
@@ -892,14 +892,14 @@ Base: `/api/v1/merchant/category`
 [
   {
     "ID": 1,
-    "name": "粮油调味",
+    "Name": "粮油调味",
     "ParentID": null,
     "SortOrder": 1,
     "CreatedAt": "2025-01-01T00:00:00Z"
   },
   {
     "ID": 5,
-    "name": "大米",
+    "Name": "大米",
     "ParentID": 1,
     "SortOrder": 1,
     "CreatedAt": "2025-01-01T00:00:00Z"
@@ -940,7 +940,7 @@ curl -X GET "https://api.example.com/api/v1/merchant/category" \
   },
   "Body": {
   "ID": 5,
-  "name": "大米",
+  "Name": "大米",
   "ParentID": 1,
   "SortOrder": 1,
   "CreatedAt": "2025-01-01T00:00:00Z"
@@ -977,7 +977,7 @@ curl -X GET "https://api.example.com/api/v1/merchant/category/5" \
 
 ```json
 {
-  "name": "有机食品",
+  "Name": "有机食品",
   "ParentID": null,
   "SortOrder": 10
 }
@@ -993,7 +993,7 @@ curl -X GET "https://api.example.com/api/v1/merchant/category/5" \
   },
   "Body": {
   "ID": 10,
-  "name": "有机食品",
+  "Name": "有机食品",
   "ParentID": null,
   "SortOrder": 10,
   "CreatedAt": "2025-01-16T14:00:00Z"
@@ -1008,7 +1008,7 @@ curl -X POST "https://api.example.com/api/v1/merchant/category" \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "有机食品",
+    "Name": "有机食品",
     "ParentID": null,
     "SortOrder": 10
   }'
@@ -1042,7 +1042,7 @@ curl -X POST "https://api.example.com/api/v1/merchant/category" \
 
 ```json
 {
-  "name": "有机食品专区",
+  "Name": "有机食品专区",
   "SortOrder": 5
 }
 ```
@@ -1057,7 +1057,7 @@ curl -X POST "https://api.example.com/api/v1/merchant/category" \
   },
   "Body": {
   "ID": 10,
-  "name": "有机食品专区",
+  "Name": "有机食品专区",
   "ParentID": null,
   "SortOrder": 5,
   "UpdatedAt": "2025-01-16T14:30:00Z"
@@ -1072,7 +1072,7 @@ curl -X PUT "https://api.example.com/api/v1/merchant/category/10" \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "有机食品专区",
+    "Name": "有机食品专区",
     "SortOrder": 5
   }'
 ```
@@ -1127,18 +1127,18 @@ curl -X DELETE "https://api.example.com/api/v1/merchant/category/10" \
 [
   {
     "ID": 1,
-    "name": "粮油调味",
+    "Name": "粮油调味",
     "SortOrder": 1,
     "children": [
       {
         "ID": 5,
-        "name": "大米",
+        "Name": "大米",
         "SortOrder": 1,
         "children": []
       },
       {
         "ID": 6,
-        "name": "食用油",
+        "Name": "食用油",
         "SortOrder": 2,
         "children": []
       }
@@ -1146,12 +1146,12 @@ curl -X DELETE "https://api.example.com/api/v1/merchant/category/10" \
   },
   {
     "ID": 2,
-    "name": "生鲜食材",
+    "Name": "生鲜食材",
     "SortOrder": 2,
     "children": [
       {
         "ID": 7,
-        "name": "蔬菜",
+        "Name": "蔬菜",
         "SortOrder": 1,
         "children": []
       }
@@ -1293,7 +1293,7 @@ curl -X PUT "https://api.example.com/api/v1/merchant/merchant" \
 
 ```json
 {
-  "name": "新鲜农场直供",
+  "Name": "新鲜农场直供",
   "ContactName": "赵总",
   "ContactPhone": "13700137000",
   "address": "上海市浦东新区张江路100号"
@@ -1310,11 +1310,11 @@ curl -X PUT "https://api.example.com/api/v1/merchant/merchant" \
   },
   "Body": {
   "ID": 10,
-  "name": "新鲜农场直供",
+  "Name": "新鲜农场直供",
   "ContactName": "赵总",
   "ContactPhone": "13700137000",
   "address": "上海市浦东新区张江路100号",
-  "status": "active",
+  "Status": "active",
   "CreatedAt": "2025-01-16T16:00:00Z"
 }
 }
@@ -1327,7 +1327,7 @@ curl -X POST "https://api.example.com/api/v1/merchant/merchant" \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "新鲜农场直供",
+    "Name": "新鲜农场直供",
     "ContactName": "赵总",
     "ContactPhone": "13700137000",
     "address": "上海市浦东新区张江路100号"
@@ -1496,12 +1496,12 @@ curl -X GET "https://api.example.com/api/v1/merchant/analytic/customer" \
     "Msg": "Success"
   },
   "Body": {
-  "top_products": [
-    {"ProductID": 101, "name": "东北大米 50kg", "sales": 500, "revenue": 6000000},
-    {"ProductID": 102, "name": "有机鸡蛋 30枚装", "sales": 300, "revenue": 1350000}
+  "TopProducts": [
+    {"ProductID": 101, "Name": "东北大米 50kg", "sales": 500, "revenue": 6000000},
+    {"ProductID": 102, "Name": "有机鸡蛋 30枚装", "sales": 300, "revenue": 1350000}
   ],
-  "total_products": 42,
-  "active_products": 38
+  "TotalProducts": 42,
+  "ActiveProducts": 38
 }
 }
 ```
@@ -1534,13 +1534,13 @@ curl -X GET "https://api.example.com/api/v1/merchant/analytic/product" \
     "Msg": "Success"
   },
   "Body": {
-  "today_orders": 5,
-  "today_revenue": 30000000,
-  "month_orders": 150,
-  "month_revenue": 900000000,
-  "pending_orders": 10,
-  "low_stock_count": 3,
-  "total_products": 42
+  "TodayOrders": 5,
+  "TodayRevenue": 30000000,
+  "MonthOrders": 150,
+  "MonthRevenue": 900000000,
+  "PendingOrders": 10,
+  "LowStockCount": 3,
+  "TotalProducts": 42
 }
 }
 ```
@@ -1574,20 +1574,20 @@ Base: `/api/v1/merchant/role`
 [
   {
     "ID": 1,
-    "name": "管理员",
+    "Name": "管理员",
     "code": "admin",
-    "description": "拥有所有权限",
+    "Description": "拥有所有权限",
     "permissions": ["product.*", "order.*", "inventory.*", "analytic.*"],
-    "status": "active",
+    "Status": "active",
     "CreatedAt": "2024-01-01T00:00:00Z"
   },
   {
     "ID": 2,
-    "name": "运营",
+    "Name": "运营",
     "code": "operator",
-    "description": "商品和订单管理",
+    "Description": "商品和订单管理",
     "permissions": ["product.read", "product.write", "order.read", "order.write"],
-    "status": "active",
+    "Status": "active",
     "CreatedAt": "2024-01-01T00:00:00Z"
   }
 ]
@@ -1626,11 +1626,11 @@ curl -X GET "https://api.example.com/api/v1/merchant/role" \
   },
   "Body": {
   "ID": 1,
-  "name": "管理员",
+  "Name": "管理员",
   "code": "admin",
-  "description": "拥有所有权限",
+  "Description": "拥有所有权限",
   "permissions": ["product.*", "order.*", "inventory.*", "analytic.*"],
-  "status": "active",
+  "Status": "active",
   "CreatedAt": "2024-01-01T00:00:00Z",
   "UpdatedAt": "2024-06-01T00:00:00Z"
 }
@@ -1668,9 +1668,9 @@ curl -X GET "https://api.example.com/api/v1/merchant/role/1" \
 
 ```json
 {
-  "name": "仓库管理员",
+  "Name": "仓库管理员",
   "code": "warehouse",
-  "description": "管理库存和发货",
+  "Description": "管理库存和发货",
   "permissions": ["inventory.read", "inventory.write", "order.read", "order.ship"]
 }
 ```
@@ -1685,11 +1685,11 @@ curl -X GET "https://api.example.com/api/v1/merchant/role/1" \
   },
   "Body": {
   "ID": 3,
-  "name": "仓库管理员",
+  "Name": "仓库管理员",
   "code": "warehouse",
-  "description": "管理库存和发货",
+  "Description": "管理库存和发货",
   "permissions": ["inventory.read", "inventory.write", "order.read", "order.ship"],
-  "status": "active",
+  "Status": "active",
   "CreatedAt": "2025-01-16T17:00:00Z"
 }
 }
@@ -1702,9 +1702,9 @@ curl -X POST "https://api.example.com/api/v1/merchant/role" \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "仓库管理员",
+    "Name": "仓库管理员",
     "code": "warehouse",
-    "description": "管理库存和发货",
+    "Description": "管理库存和发货",
     "permissions": ["inventory.read", "inventory.write", "order.read", "order.ship"]
   }'
 ```
@@ -1738,7 +1738,7 @@ curl -X POST "https://api.example.com/api/v1/merchant/role" \
 
 ```json
 {
-  "name": "高级仓库管理员",
+  "Name": "高级仓库管理员",
   "permissions": ["inventory.*", "order.read", "order.ship"]
 }
 ```
@@ -1753,11 +1753,11 @@ curl -X POST "https://api.example.com/api/v1/merchant/role" \
   },
   "Body": {
   "ID": 3,
-  "name": "高级仓库管理员",
+  "Name": "高级仓库管理员",
   "code": "warehouse",
-  "description": "管理库存和发货",
+  "Description": "管理库存和发货",
   "permissions": ["inventory.*", "order.read", "order.ship"],
-  "status": "active",
+  "Status": "active",
   "UpdatedAt": "2025-01-16T17:30:00Z"
 }
 }
@@ -1770,7 +1770,7 @@ curl -X PUT "https://api.example.com/api/v1/merchant/role/3" \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "高级仓库管理员",
+    "Name": "高级仓库管理员",
     "permissions": ["inventory.*", "order.read", "order.ship"]
   }'
 ```

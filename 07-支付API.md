@@ -45,12 +45,12 @@
 
 ```json
 {
-  "user_id": 1001,
-  "currency_id": 1,
-  "amount": 10000,
-  "pay_method": "alipay",
-  "return_url": "https://example.com/payment/success",
-  "notify_url": "https://api.example.com/api/v1/payment/alipay/notify"
+  "UserID": 1001,
+  "CurrencyID": 1,
+  "Amount": 10000,
+  "PayMethod": "alipay",
+  "ReturnURL": "https://example.com/payment/success",
+  "NotifyURL": "https://api.example.com/api/v1/payment/alipay/notify"
 }
 ```
 
@@ -87,11 +87,11 @@ curl -X POST 'https://api.example.com/api/v1/payment/alipay/deposit' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "user_id": 1001,
-    "currency_id": 1,
-    "amount": 10000,
-    "pay_method": "alipay",
-    "return_url": "https://example.com/payment/success"
+    "UserID": 1001,
+    "CurrencyID": 1,
+    "Amount": 10000,
+    "PayMethod": "alipay",
+    "ReturnURL": "https://example.com/payment/success"
   }'
 ```
 
@@ -123,8 +123,8 @@ curl -X POST 'https://api.example.com/api/v1/payment/alipay/deposit' \
 
 ```json
 {
-  "order_id": "ORD20250120001",
-  "pay_method": "alipay"
+  "OrderID": "ORD20250120001",
+  "PayMethod": "alipay"
 }
 ```
 
@@ -153,8 +153,8 @@ curl -X POST 'https://api.example.com/api/v1/payment/alipay/order' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "order_id": "ORD20250120001",
-    "pay_method": "alipay"
+    "OrderID": "ORD20250120001",
+    "PayMethod": "alipay"
   }'
 ```
 
@@ -222,7 +222,7 @@ fail
 **Request 示例 (application/x-www-form-urlencoded):**
 
 ```
-notify_time=2025-01-20 10:30:00&notify_type=trade_status_sync&notify_id=2025012000123456&app_id=2021001000000000&charset=utf-8&version=1.0&sign_type=RSA2&sign=xxxxxx&trade_no=2025012022000000000000001&out_trade_no=PAY2025012012345678&out_biz_no=ORD20250120001&buyer_id=2088000000000001&buyer_logon_id=test@example.com&seller_id=2088000000000002&trade_status=TRADE_SUCCESS&total_amount=100.00&receipt_amount=100.00&buyer_pay_amount=100.00&gmt_create=2025-01-20 10:29:00&gmt_payment=2025-01-20 10:30:00&fund_bill_list=[{"amount":"100.00","fundChannel":"ALIPAYACCOUNT"}]
+notify_time=2025-01-20 10:30:00&notify_type=trade_status_sync&notify_id=2025012000123456&app_id=2021001000000000&charset=utf-8&version=1.0&sign_type=RSA2&sign=xxxxxx&trade_no=2025012022000000000000001&out_trade_no=PAY2025012012345678&out_biz_no=ORD20250120001&buyer_id=2088000000000001&buyer_logon_id=test@example.com&seller_id=2088000000000002&trade_status=TRADE_SUCCESS&total_amount=100.00&receipt_amount=100.00&buyer_pay_amount=100.00&gmt_create=2025-01-20 10:29:00&gmt_payment=2025-01-20 10:30:00&fund_bill_list=[{"Amount":"100.00","fundChannel":"ALIPAYACCOUNT"}]
 ```
 
 **Curl 示例（模拟支付宝通知）:**
@@ -306,11 +306,11 @@ curl -X GET 'https://api.example.com/api/v1/payment/alipay/return?app_id=2021001
 
 ```json
 {
-  "user_id": 1001,
-  "currency_id": 1,
-  "amount": 5000,
-  "return_url": "https://example.com/payment/success",
-  "notify_url": "https://api.example.com/api/v1/payment/wechat/notify"
+  "UserID": 1001,
+  "CurrencyID": 1,
+  "Amount": 5000,
+  "ReturnURL": "https://example.com/payment/success",
+  "NotifyURL": "https://api.example.com/api/v1/payment/wechat/notify"
 }
 ```
 
@@ -339,10 +339,10 @@ curl -X POST 'https://api.example.com/api/v1/payment/wechat/deposit' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "user_id": 1001,
-    "currency_id": 1,
-    "amount": 5000,
-    "return_url": "https://example.com/payment/success"
+    "UserID": 1001,
+    "CurrencyID": 1,
+    "Amount": 5000,
+    "ReturnURL": "https://example.com/payment/success"
   }'
 ```
 
@@ -371,7 +371,7 @@ curl -X POST 'https://api.example.com/api/v1/payment/wechat/deposit' \
 
 ```json
 {
-  "order_id": "ORD20250120002"
+  "OrderID": "ORD20250120002"
 }
 ```
 
@@ -400,7 +400,7 @@ curl -X POST 'https://api.example.com/api/v1/payment/wechat/order' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "order_id": "ORD20250120002"
+    "OrderID": "ORD20250120002"
   }'
 ```
 

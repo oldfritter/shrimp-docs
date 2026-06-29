@@ -23,11 +23,11 @@ curl "http://localhost:8090/api/v1/procurement/cart" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": [
+  "Body": [
     {
       "ID": 1,
       "UserID": 42,
@@ -68,18 +68,18 @@ POST /api/v1/procurement/cart/item
 curl -X POST "http://localhost:8090/api/v1/procurement/cart/item" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIs..." \
   -H "Content-Type: application/json" \
-  -d '{"product_id": 1, "quantity": 3}'
+  -d '{"ProductID": 1, "Quantity": 3}'
 ```
 
 #### 响应示例
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "ID": 1,
     "UserID": 42,
     "ProductID": 1,
@@ -109,18 +109,18 @@ PUT /api/v1/procurement/cart/item/:id
 curl -X PUT "http://localhost:8090/api/v1/procurement/cart/item/1" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIs..." \
   -H "Content-Type: application/json" \
-  -d '{"quantity": 5}'
+  -d '{"Quantity": 5}'
 ```
 
 #### 响应示例
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "ID": 1,
     "UserID": 42,
     "ProductID": 1,
@@ -149,11 +149,11 @@ curl -X DELETE "http://localhost:8090/api/v1/procurement/cart/item/1" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "Message": "已移除"
   }
 }
@@ -178,11 +178,11 @@ curl -X DELETE "http://localhost:8090/api/v1/procurement/cart" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "Message": "购物车已清空"
   }
 }
@@ -211,18 +211,18 @@ POST /api/v1/procurement/qualification/apply
 curl -X POST "http://localhost:8090/api/v1/procurement/qualification/apply" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIs..." \
   -H "Content-Type: application/json" \
-  -d '{"level": 1, "level_name": "初级采购员"}'
+  -d '{"Level": 1, "LevelName": "初级采购员"}'
 ```
 
 #### 响应示例
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "ID": 1,
     "UserID": 42,
     "Level": 1,
@@ -254,11 +254,11 @@ curl "http://localhost:8090/api/v1/procurement/qualification/me" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "ID": 1,
     "UserID": 42,
     "Level": 1,
@@ -276,7 +276,7 @@ curl "http://localhost:8090/api/v1/procurement/qualification/me" \
 
 ```json
 {
-  "head": {
+  "Head": {
     "code": "2001",
     "msg": "资源不存在"
   }
@@ -316,11 +316,11 @@ curl "http://localhost:8090/api/v1/procurement/intent/square?keyword=水果&lat=
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": [
+  "Body": [
     {
       "ID": 5,
       "UserID": 10,
@@ -374,11 +374,11 @@ curl "http://localhost:8090/api/v1/procurement/intent/5" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "ID": 5,
     "Title": "采购一批新鲜水果",
     "Description": "需要新鲜水果用于公司团建",
@@ -420,11 +420,11 @@ curl -X POST "http://localhost:8090/api/v1/procurement/intent/5/accept" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "Message": "接取成功"
   }
 }
@@ -449,11 +449,11 @@ curl "http://localhost:8090/api/v1/procurement/intent/5/order" \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": [
+  "Body": [
     {
       "ID": 1,
       "OrderNumber": "ORD202606241001",

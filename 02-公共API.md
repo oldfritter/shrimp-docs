@@ -158,17 +158,17 @@ curl "http://localhost:8090/api/v1/category"
   "Body": [
     {
       "ID": 1,
-      "name": "水果",
-      "description": "新鲜水果",
-      "parent_id": null,
-      "status": "active"
+      "Name": "水果",
+      "Description": "新鲜水果",
+      "ParentID": null,
+      "Status": "active"
     },
     {
       "ID": 2,
-      "name": "苹果",
-      "description": "各种苹果",
-      "parent_id": 1,
-      "status": "active"
+      "Name": "苹果",
+      "Description": "各种苹果",
+      "ParentID": 1,
+      "Status": "active"
     }
   ]
 }
@@ -198,20 +198,20 @@ curl "http://localhost:8090/api/v1/category/1"
   },
   "Body": {
     "ID": 1,
-    "name": "水果",
-    "description": "新鲜水果",
-    "parent_id": null,
-    "status": "active",
-    "children": [
+    "Name": "水果",
+    "Description": "新鲜水果",
+    "ParentID": null,
+    "Status": "active",
+    "Children": [
       {
         "ID": 2,
-        "name": "苹果",
-        "parent_id": 1
+        "Name": "苹果",
+        "ParentID": 1
       },
       {
         "ID": 3,
-        "name": "香蕉",
-        "parent_id": 1
+        "Name": "香蕉",
+        "ParentID": 1
       }
     ]
   }
@@ -240,9 +240,9 @@ POST /api/v1/register
 curl -X POST "http://localhost:8090/api/v1/register" \
   -H "Content-Type: application/json" \
   -d '{
-    "username": "zhangsan",
-    "phone": "13800138000",
-    "password": "Pass1234"
+    "Username": "zhangsan",
+    "Phone": "13800138000",
+    "Password": "Pass1234"
   }'
 ```
 
@@ -294,8 +294,8 @@ POST /api/v1/login
 curl -X POST "http://localhost:8090/api/v1/login" \
   -H "Content-Type: application/json" \
   -d '{
-    "username": "zhangsan",
-    "password": "Pass1234"
+    "Username": "zhangsan",
+    "Password": "Pass1234"
   }'
 ```
 
@@ -416,19 +416,19 @@ curl "http://localhost:8090/api/v1/session" \
   "Body": [
     {
       "ID": 1,
-      "device_os": "macos",
-      "device_type": "desktop",
-      "browser": "chrome",
+      "DeviceOS": "macos",
+      "DeviceType": "desktop",
+      "Browser": "chrome",
       "ip": "192.168.1.100",
-      "login_at": "2026-06-24T09:00:00+08:00"
+      "LoginAt": "2026-06-24T09:00:00+08:00"
     },
     {
       "ID": 2,
-      "device_os": "ios",
-      "device_type": "mobile",
-      "browser": "safari",
+      "DeviceOS": "ios",
+      "DeviceType": "mobile",
+      "Browser": "safari",
       "ip": "192.168.1.101",
-      "login_at": "2026-06-23T18:30:00+08:00"
+      "LoginAt": "2026-06-23T18:30:00+08:00"
     }
   ]
 }
