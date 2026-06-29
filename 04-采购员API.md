@@ -343,14 +343,14 @@ curl "http://localhost:8090/api/v1/procurement/intent/square?keyword=水果&lat=
       "CreatedAt": "2026-06-24T10:00:00+08:00"
     }
   ],
-  "pagination": {
-    "per": 10,
-    "count": 15,
-    "page": 2,
-    "current": 1,
-    "next": 2,
-    "previous": 0,
-    "order": "id:desc"
+  "Pagination": {
+    "Per": 10,
+    "Count": 15,
+    "Page": 2,
+    "Current": 1,
+    "Next": 2,
+    "Previous": 0,
+    "Order": "id:desc"
   }
 }
 ```

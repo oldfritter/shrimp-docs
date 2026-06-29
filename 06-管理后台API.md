@@ -156,14 +156,14 @@ Base: `/api/v1/admin/merchant`
       "UpdatedAt": "2025-01-15T12:00:00Z"
     }
   ],
-  "pagination": {
-    "per": 20,
-    "count": 45,
-    "page": 3,
-    "current": 1,
-    "next": 2,
-    "previous": 0,
-    "order": "id:desc"
+  "Pagination": {
+    "Per": 20,
+    "Count": 45,
+    "Page": 3,
+    "Current": 1,
+    "Next": 2,
+    "Previous": 0,
+    "Order": "id:desc"
   }
 }
 ```
@@ -435,14 +435,14 @@ Base: `/api/v1/admin/user`
       "UpdatedAt": "2025-01-15T12:00:00Z"
     }
   ],
-  "pagination": {
-    "per": 20,
-    "count": 1280,
-    "page": 64,
-    "current": 1,
-    "next": 2,
-    "previous": 0,
-    "order": "id:desc"
+  "Pagination": {
+    "Per": 20,
+    "Count": 1280,
+    "Page": 64,
+    "Current": 1,
+    "Next": 2,
+    "Previous": 0,
+    "Order": "id:desc"
   }
 }
 ```
@@ -618,14 +618,14 @@ Base: `/api/v1/admin/role`
       "UpdatedAt": "2025-01-05T00:00:00Z"
     }
   ],
-  "pagination": {
-    "per": 20,
-    "count": 10,
-    "page": 1,
-    "current": 1,
-    "next": 0,
-    "previous": 0,
-    "order": "id:desc"
+  "Pagination": {
+    "Per": 20,
+    "Count": 10,
+    "Page": 1,
+    "Current": 1,
+    "Next": 0,
+    "Previous": 0,
+    "Order": "id:desc"
   }
 }
 ```
@@ -878,14 +878,14 @@ Base: `/api/v1/admin/qualification`
       "CreatedAt": "2025-01-18T10:00:00Z"
     }
   ],
-  "pagination": {
-    "per": 20,
-    "count": 5,
-    "page": 1,
-    "current": 1,
-    "next": 0,
-    "previous": 0,
-    "order": "id:desc"
+  "Pagination": {
+    "Per": 20,
+    "Count": 5,
+    "Page": 1,
+    "Current": 1,
+    "Next": 0,
+    "Previous": 0,
+    "Order": "id:desc"
   }
 }
 ```
@@ -1007,14 +1007,14 @@ Base: `/api/v1/admin/intent`
       "updated_at": "2025-01-19T08:00:00Z"
     }
   ],
-  "pagination": {
-    "per": 20,
-    "count": 15,
-    "page": 1,
-    "current": 1,
-    "next": 0,
-    "previous": 0,
-    "order": "id:desc"
+  "Pagination": {
+    "Per": 20,
+    "Count": 15,
+    "Page": 1,
+    "Current": 1,
+    "Next": 0,
+    "Previous": 0,
+    "Order": "id:desc"
   }
 }
 ```
@@ -1130,14 +1130,14 @@ Base: `/api/v1/admin/product`
       "updated_at": "2025-01-15T12:00:00Z"
     }
   ],
-  "pagination": {
-    "per": 20,
-    "count": 3200,
-    "page": 160,
-    "current": 1,
-    "next": 2,
-    "previous": 0,
-    "order": "id:desc"
+  "Pagination": {
+    "Per": 20,
+    "Count": 3200,
+    "Page": 160,
+    "Current": 1,
+    "Next": 2,
+    "Previous": 0,
+    "Order": "id:desc"
   }
 }
 ```
@@ -1398,14 +1398,14 @@ Base: `/api/v1/admin/category`
     "code": "1000",
     "msg": "Success"
   },
-  "pagination": {
-    "per": 20,
-    "count": 20,
-    "page": 1,
-    "current": 1,
-    "next": 0,
-    "previous": 0,
-    "order": "id:desc"
+  "Pagination": {
+    "Per": 20,
+    "Count": 20,
+    "Page": 1,
+    "Current": 1,
+    "Next": 0,
+    "Previous": 0,
+    "Order": "id:desc"
   },
   "body": [
     {

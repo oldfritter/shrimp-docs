@@ -52,13 +52,13 @@ curl "http://localhost:8090/api/v1/product?page=1&page_size=10&category_id=1"
     }
   ],
   "Pagination": {
-    "per": 10,
-    "count": 56,
-    "page": 6,
-    "current": 1,
-    "next": 2,
-    "previous": 0,
-    "order": "id:desc"
+    "Per": 10,
+    "Count": 56,
+    "Page": 6,
+    "Current": 1,
+    "Next": 2,
+    "Previous": 0,
+    "Order": "id:desc"
   }
 }
 ```

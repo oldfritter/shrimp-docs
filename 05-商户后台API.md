@@ -353,13 +353,13 @@ Base: `/api/v1/merchant/order`
     "Msg": "Success"
   },
   "Pagination": {
-    "per": 20,
-    "count": 150,
-    "page": 8,
-    "current": 1,
-    "next": 2,
-    "previous": 0,
-    "order": "id:desc"
+    "Per": 20,
+    "Count": 150,
+    "Page": 8,
+    "Current": 1,
+    "Next": 2,
+    "Previous": 0,
+    "Order": "id:desc"
   },
   "Body": [
     {
