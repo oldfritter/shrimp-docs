@@ -58,11 +58,11 @@
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "OrderID": "PAY2025012012345678",
     "PayURL": "https://pay.alipay.com/xxxxxx",
     "QRCode": "https://cdn.example.com/qrcodes/PAY2025012012345678.png",
@@ -132,11 +132,11 @@ curl -X POST 'https://api.example.com/api/v1/payment/alipay/deposit' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "OrderID": "PAY2025012098765432",
     "PayURL": "https://pay.alipay.com/yyyyyy",
     "QRCode": "https://cdn.example.com/qrcodes/PAY2025012098765432.png",
@@ -318,11 +318,11 @@ curl -X GET 'https://api.example.com/api/v1/payment/alipay/return?app_id=2021001
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "OrderID": "PAY2025012055555555",
     "PayURL": "https://wx.tenpay.com/xxxxxx",
     "QRCode": "https://cdn.example.com/qrcodes/PAY2025012055555555.png",
@@ -379,11 +379,11 @@ curl -X POST 'https://api.example.com/api/v1/payment/wechat/deposit' \
 
 ```json
 {
-  "head": {
-    "code": "1000",
-    "msg": "Success"
+  "Head": {
+    "Code": "1000",
+    "Msg": "Success"
   },
-  "body": {
+  "Body": {
     "OrderID": "PAY2025012066666666",
     "PayURL": "https://wx.tenpay.com/yyyyyy",
     "QRCode": "https://cdn.example.com/qrcodes/PAY2025012066666666.png",
@@ -560,9 +560,9 @@ curl -X GET 'https://api.example.com/api/v1/payment/wechat/return?order_id=PAY20
 
 ```json
 {
-  "head": {
-    "code": "1001",
-    "msg": "金额必须大于 0"
+  "Head": {
+    "Code": "1001",
+    "Msg": "金额必须大于 0"
   }
 }
 ```
